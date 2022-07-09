@@ -1,0 +1,102 @@
+
+// -*- mode: json -*-
+
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "width": 1900,
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
+    "modules-left": [
+        "sway/workspaces",
+    ],
+
+    "modules-center": [
+        "sway/window",
+    ],
+
+    "modules-right": [
+        "disk",
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "clock",
+        "tray"
+    ],
+
+    "sway/workspaces": {
+	  "disable-scroll": true,
+    "format": "{icon}",
+    "persistent_workspaces": {
+        "1": ["DP-4"],
+	      "2": ["DP-4"],
+        "3": ["DP-4"],
+	      "4": ["DP-4"],
+	      "5": ["DP-4"],
+	      "6": ["DVI-D-1"],
+	      "7": ["DVI-D-1"],
+	      "8": ["DVI-D-1"],
+	      "9": ["DVI-D-1"],
+	      "10": ["DVI-D-1"],
+	      "11": ["DP-2"],
+	      "12": ["DP-2"],
+	      "13": ["DP-2"],
+	      "14": ["DP-2"],
+	      "15": ["DP-2"],
+    },
+    "format-icons": {
+        "1": "dev",
+        "2": "www",
+        "3": "game",
+        "4": "virt",
+        "5": "misc",
+        "6": "dev",
+        "7": "www",
+        "8": "sys",
+        "9": "virt",
+        "10": "misc",
+        "11": "dev",
+        "12": "www",
+        "13": "rec",
+        "14": "virt",
+        "15": "misc",
+    }
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 50
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "format": "vol: {volume:2}%",
+        "format-bluetooth": "vol: {volume}%",
+        "format-muted": "muted",
+        "scroll-step": 5,
+        "on-click": "pamixer -t",
+        "on-click-right": "pavucontrol"
+    },
+    "memory": {
+        "interval": 5,
+        "format": "mem: {}%"
+    },
+    "cpu": {
+        "interval": 5,
+        "format": "cpu: {usage:2}%"
+    },
+    "disk": {
+        "interval": 5,
+        "format": "disk: {percentage_used:2}%",
+        "path": "/"
+    },
+    "tray": {
+        "icon-size": 24
+    }
+}

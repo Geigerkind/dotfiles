@@ -1,2 +1,357 @@
-# dotfiles
-ArchLinux sway/i3 setup on system76 oryx pro 5
+# Archlinux Sway/i3 setup on a system76 Oryx Pro 5
+## Features
+* Full disk encryption
+* System76 packages installed
+* Wayland and xorg setups
+* Configuration for a nice ricing
+
+## Installation
+### Create a bootable ArchLinux USB drive
+```sh
+sudo umount /dev/sdx
+sudo dd bs=4M if=arch_linux.ISO of=/dev/sdb status=progress
+```
+
+Insert drive and reboot into the drive.
+
+### Installation convinience
+```sh
+# Available keyboard layouts
+ls /usr/share/kbd/keymaps/**/*.map.gz
+loadkeys de-latin1
+
+# Adjust TTY font size
+ls /usr/share/kbd/consolefonts | grep -P "[2-9]\d+\.ps"
+# Use the biggest font you can find
+setfont latarcyrheb-sun32
+```
+
+### Verify boot mode
+If it shows an output it uses UEFI, if not it uses BIOS
+```sh
+ls /sys/firmware/efi/efivars
+```
+This tutorial only supports UEFI.
+
+### Setting up an internet connection
+```sh
+# Verify your connection
+ping www.google.com
+
+# If not try this
+## Ethernet
+### Find adapters
+ip link
+### Configure adapter
+ip link set NIC up
+dhclient NIC
+
+## Wireless
+ip link
+ip link set wlan0 up
+### Chose on variant
+#### No encryption
+iw dev wlan0 connect “your_essid”
+#### WEP
+iw dev wlan0 connect “your_essid” key 0:your_key
+#### WPA/WPA2
+wpa_passphrase my_essid my_passphrase > /etc/wpa_supplicant/my_essid.conf
+wpa_supplicant -c /etc/wpa_supplicant/my_essid.conf -i wlan0
+wpa_supplicant -B -c /etc/wpa_supplicant/my_essid.conf -i wlan0
+dhclient wlan0
+
+# Verify your connection
+ping www.google.com
+```
+
+### Update system clock
+```sh
+timedatectl set-ntp true
+```
+
+### Prepare for LUKS encryption
+```sh
+modprobe dm-crypt
+modprobe dm-mod
+```
+
+### Prepare disks
+```sh
+# Find your disk for me its nvme1n1
+lsblk
+
+# You may have to remove partitions before
+# Follow the instructions d, enter, select partition, repeat
+fdisk /dev/nvme1n1
+
+# Choose gpt
+cfdisk /dev/nvme1n1
+# Create 3 partitions
+## Goto new, enter size and select type, 'Free Space'
+## First: Size: 256MB, Type: 'EFI System'
+## Second: Size: 512MB, Type: 'ext4'
+## Third: Size: Rest, Type: 'ext4'
+## Goto write and press enter
+``` 
+
+#### Encrypt root partition
+```sh
+# Confirm with uppercase YES and type desired password
+cryptsetup luksFormat -v -s 512 -h sha512 /dev/nvme1n1p3
+
+# Open it, it will prompt for your password
+# The partition will be available under /dev/mapper/luks_root
+cryptsetup open /dev/nvme1n1p3 luks_root
+```
+
+#### Format and mount file system
+```sh
+# Format all partitions
+mkfs.vfat -n “EFI System Partition” /dev/nvme1n1p1
+mkfs.ext4 -L boot /dev/nvme1n1p2
+mkfs.ext4 -L root /dev/mapper/luks_root
+
+# Mount them
+mount /dev/mapper/luks_root /mnt
+mkdir /mnt/boot
+mount /dev/nvme1n1p2 /mnt/boot
+mkdir /mnt/boot/efi
+mount /dev/nvme1n1p1 /mnt/boot/efi
+
+# Create a swap
+cd /mnt
+dd if=/dev/zero of=swap bs=1M count=1024
+mkswap swap
+swapon swap
+chmod 0600 swap
+``` 
+
+### Update Pacman mirrors
+Find the mirror closes to you and copy it to the top of the list
+```sh
+vim /etc/pacman.d/mirrorslist
+```
+
+### Installing ArchLinux
+```sh
+# Pacstrap
+pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmare networkmanager sudo vi vim bash-completion nano
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# Install packages that are used later
+pacman -S netctl dialog dhcpcd pulseaudio alsa linux-headers
+pacman -S xf86-video-intel xf86-video-nouveau mesa mesa-demos acpi acpid
+
+# Change root to new system
+arch-chroot /mnt
+
+# Time zone
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+hwclock --systohc
+
+# Localization
+## Uncomment your required locals
+vim /etc/locale.gen
+locale-gen
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+export LANG=en_US.UTF-8
+export KEYMAP=de-latin1
+echo KEYMAP=de-latin1 > /etc/vconsole.conf
+
+# Network
+echo robot > /etc/hostname
+echo "127.0.0.1 localhost" >> /etc/hosts
+echo "::1 localhost" >> /etc/hosts
+echo "127.0.1.1 robot.localdomain robot" >> /etc/hosts
+
+# Sudo
+## Set up root password
+passwd
+
+## Add user
+useradd -m -g wheel shino
+passwd shino
+
+## Uncomment wheel group
+vim /etc/sudoers
+``` 
+
+### Bootloader
+```sh
+# Edit the grub configuration
+vim /etc/default/grub
+# Add the following below 'GRUB_CMDLINE_LINUX_DEFAULT'
+# GRUB_CMDLINE_LINUX=”cryptdevice=/dev/nvme1n1p3:luks_root”
+
+# Edit Initframs config
+vim /etc/mkinitcpio.conf
+# Your HOOKS should looks similar to this
+# HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)
+mkinitcpio -p linux
+
+# Install bootloader
+grub-install --boot-directory=/boot --efi-directory=/boot/efi /dev/nvme1n1p2
+grub-mkconfig -o /boot/grub/grub.cfg
+grub-mkconfig -o /boot/efi/EFI/arch/grub.cfg
+``` 
+
+### Exit and reboot
+```sh
+exit
+reboot
+```
+
+### Configuration
+#### Installing more essentials
+```sh
+sudo pacman -S zip unzip tar unrar wget htop clang cmake git python openssh npm pacman-contrib pkgconfig autoconf automake man p7zip bzip2 zstd xz gzip
+``` 
+
+#### Network
+```sh
+sudo systemctl enable --now NetworkManager
+# You may need to use 'nmtui' to configure the network
+sudo systemctl enable --now acpid
+```
+
+#### CPU microcode
+```sh
+sudo pacman -S intel-ucode
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+``` 
+
+#### App Armor
+```sh
+sudo pacman -S apparmor
+sudo systemctl enable --now apparmor.service
+
+# Edit the grub configuration
+vim /etc/default/grub
+# GRUB_CMDLINE_LINUX=”apparmor=1 lsm=lockdown,yama,apparmor cryptdevice=/dev/nvme1n1p3:luks_root”
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+#### UFW
+```sh
+sudo pacman -S ufw
+sudo systemctl enable --now ufw
+sudo ufw enable
+```
+
+#### YAY: Aur Repos
+```sh
+# Improve makepkg compile time
+sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j12"/g' /etc/makepkg.conf>
+
+# Installing yay
+## Im not sure if yay is in the community repo or not, you should check it before proceeding
+cd
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg
+## Very likely you have to adjust this version
+sudo pacman -U yay-9.4.4-1-x86_64.pkg.tar.xz
+cd ..
+rm -rf yay
+```
+
+#### System76 proprietary drivers
+```sh
+yay -s system76-io-dkms system76-dkms system76-firmware-daemon firmware-manager-git system76-acpi-dkms system76-driver
+
+systemctl enable --now system76-firmware-daemon
+systemctl enable --now system76-backlight --user
+systemctl enable --now system76
+``` 
+
+#### Graphics
+The Oryx Pro 5 comes with an integrated and discrete graphics card. 
+As I only use this laptop for work, I skipped this step. 
+For more information visit this [repo](https://github.com/LegendaryLinux/arch76-oryxpro5)
+```sh
+sudo pacman -S nvidia nvidia-utils
+```
+You can test it with `glmark2` which can be found in the AUR repos.
+
+#### Audio
+```sh
+pacman -S alsa alsa-firmware pulseaudio pavucontrol
+
+# Create the following file
+echo "options snd_hda_intel probe_mask=1" > /etc/modprobe.d/audio-patch.conf
+
+# Reboot to apply it to the system
+``` 
+
+#### Java
+```sh
+sudo pacman -S jre-openjdk jdk-openjdk
+sudo archlinux-java set java-17-openjdk
+``` 
+
+#### Anti-Virus
+Required by all companies, here is one that doesnt annoy much
+```sh
+sudo pacman -S clamav
+freshclam
+sudo systemctl enable clamav-freshclam.service
+sudo systemctl start clamav-freshclam.service
+``` 
+
+#### Configuring visible processes in top
+```sh
+sudo -s
+echo "proc /proc proc defaults,nosuid,nodev,noexec,relatime,hidepid=2 0 0" >> /etc/fstab
+exit
+``` 
+
+#### Fonts
+Honestly, I just add everything and hope that it covers everything
+```sh
+yay -S ttf-jetbrains-mono noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-emoji ttf-liberation ttf-dejavu ttf-roboto ttf-inconsolata ttf-font-awesome ttf-ubuntu-font-family ttf-d2coding ttf-muli nerd-fonts-source-code-pro
+```
+
+#### Applications
+```sh
+# Daily utensils
+yay -S firefox alacritty exa nautilus discord signal-desktop neofetch
+
+# Development
+yay -S intellij-idea-ultimate-edition rustup neovim go 
+
+# Docker
+yay -S docker docker-compose
+sudo systemctl enable docker
+
+## TODO: Install Neovim
+``` 
+
+#### Window Manager
+```sh
+# Those packages we need in general
+yay -S xorg autotiling-git lightdm web-greeter
+
+# TODO: Create lightdm config
+# Copy config to /etc/lightdm/lightdm.conf
+sudo systemctl enable lightdm.service
+```
+
+##### Wayland with sway
+```sh
+yay -S sway swaylock swayidle waybar dmenu swaybg brightnessctl wofi
+
+# You may need to do this so brightnessctl works
+sudo chmod u+s /usr/bin/brightnessctl
+
+## TODO: Copy config
+## TODO: Configuration and screensharing
+## TODO: Configuration with nvidia gpu
+## TODO: Startup with nvidia gpu
+```
+
+#### Xorg with i3
+```sh
+yay -S i3-gaps polybar rofi
+
+## TODO: Copy config
+``` 

@@ -1,0 +1,145 @@
+
+#  ____
+# / ___|_      ____ _ _   _
+# \___ \ \ /\ / / _` | | | |
+#  ___) \ V  V / (_| | |_| |
+# |____/ \_/\_/ \__,_|\__, |
+#                     |___/
+
+### Autostart
+#exec pulseaudio
+exec_always --no-startup-id autotiling
+#exec --no-startup-id xhost +SI:localuser:root
+exec waybar
+
+### Variables
+#set $mod Mod4
+set $term alacritty
+
+### Display configuration
+#output DP-4 pos 0 0 res 1920x1200
+#output DP-2 pos -1920 0 res 1920x1080
+#output DVI-D-1 pos 1920 40 res 1920x1200
+#output * bg #2c2d30 solid_color
+#workspace 1 output DP-4
+#workspace 2 output DP-4
+#workspace 3 output DP-4
+#workspace 4 output DP-4
+#workspace 5 output DP-4
+#workspace 6 output DVI-D-1
+#workspace 7 output DVI-D-1
+#workspace 8 output DVI-D-1
+#workspace 9 output DVI-D-1
+#workspace 10 output DVI-D-1
+#workspace 11 output DP-2
+#workspace 12 output DP-2
+#workspace 13 output DP-2
+#workspace 14 output DP-2
+#workspace 15 output DP-2
+
+### Mouse Settings
+#input 5426:120:Razer_Razer_Viper {
+#    accel_profile flat
+#}
+##mouse_warping none
+
+### Theming
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'oomox-zerodark'
+    gsettings set $gnome-schema icon-theme 'oomox-zerodark'
+    gsettings set $gnome-schema cursor-theme 'Breeze'
+    gsettings set $gnome-schema font-name 'monospace 10'
+    gsettings set $gnome-schema document-font-name 'monospace 10'
+    gsettings set $gnome-schema monospace-font-name 'monospace 10'
+    gsettings set org.gtk.Settings.FileChooser window-size '(1100,700)'
+    gsettings set org.gnome.desktop.default-applications.terminal exec $term
+    gsettings set org.gnome.desktop.default-applications.terminal exec-arg -e
+    gsettings set org.gnome.desktop.wm.preferences button-layout ''
+}
+seat seat0 xcursor_theme Breeze 16
+font pango:monospace 10
+
+### Gaps
+gaps inner 10
+gaps outer 0
+
+### Borders
+client.focused          #b1b3b9 #b1b3b9 #35373b #b1b3b9 #b1b3b9
+client.focused_inactive #35373b #35373b #b1b3b9 #35373b #35373b
+client.unfocused        #35373b #35373b #b1b3b9 #35373b #35373b
+client.urgent           #E56A73 #E56A73 #35373b #E56A73 #E56A73
+client.placeholder      #35373b #35373b #b1b3b9 #35373b #35373b
+client.background       #35373b
+
+### Key bindings
+bindsym --locked XF86AudioLowerVolume exec pamixer -u && pamixer -d 5 && toastify send "Volume: $(pamixer --get-volume)%"
+bindsym --locked XF86AudioRaiseVolume exec pamixer -u && pamixer -i 5 && toastify send "Volume: $(pamixer --get-volume)%"
+bindsym --locked XF86AudioMute exec pamixer -t && toastify send "Muted: $(pamixer --get-mute)"
+bindsym Print exec grim -g "$(slurp)" $HOME/Pictures/screenshot_$(date +%s).png
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+Menu exec --no-startup-id wofi -I -p "" -a
+floating_modifier $mod normal
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaymsg exit
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+Up+1 workspace number 1
+bindsym $mod+Up+2 workspace number 2
+bindsym $mod+Up+3 workspace number 3
+bindsym $mod+Up+4 workspace number 4
+bindsym $mod+Up+5 workspace number 5
+bindsym $mod+Right+1 workspace number 6
+bindsym $mod+Right+2 workspace number 7
+bindsym $mod+Right+3 workspace number 8
+bindsym $mod+Right+4 workspace number 9
+bindsym $mod+Right+5 workspace number 10
+bindsym $mod+Left+1 workspace number 11
+bindsym $mod+Left+2 workspace number 12
+bindsym $mod+Left+3 workspace number 13
+bindsym $mod+Left+4 workspace number 14
+bindsym $mod+Left+5 workspace number 15
+bindsym $mod+Ctrl+Up+1 move to workspace number 1
+bindsym $mod+Ctrl+Up+2 move to workspace number 2
+bindsym $mod+Ctrl+Up+3 move to workspace number 3
+bindsym $mod+Ctrl+Up+4 move to workspace number 4
+bindsym $mod+Ctrl+Up+5 move to workspace number 5
+bindsym $mod+Ctrl+Right+1 move to workspace number 6
+bindsym $mod+Ctrl+Right+2 move to workspace number 7
+bindsym $mod+Ctrl+Right+3 move to workspace number 8
+bindsym $mod+Ctrl+Right+4 move to workspace number 9
+bindsym $mod+Ctrl+Right+5 move to workspace number 10
+bindsym $mod+Ctrl+Left+1 move to workspace number 11
+bindsym $mod+Ctrl+Left+2 move to workspace number 12
+bindsym $mod+Ctrl+Left+3 move to workspace number 13
+bindsym $mod+Ctrl+Left+4 move to workspace number 14
+bindsym $mod+Ctrl+Left+5 move to workspace number 15
+bindsym $mod+b splith
+bindsym $mod+v splitvs
+bindsym $mod+space layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Ctrl+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+Ctrl+r exec replay-sorcery save
+mode "resize" {
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+### Specific window configuration
+for_window [class="xfce-polkit"] floating enable
+for_window [title="Authentication required"] floating enable
+for_window [title="Picture in picture"] floating enable

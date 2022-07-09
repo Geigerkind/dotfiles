@@ -1,0 +1,42 @@
+* {
+  background-color: #282828;
+  text-color: #d8d8d8;
+  spacing: 0;
+  width: 640px;
+}
+
+inputbar {
+  border: 0 0 1px 0;
+  children: [prompt,entry];
+}
+
+prompt {
+  padding: 10px;
+  border: 0 1px 0 0;
+}
+
+textbox {
+  background-color: #282828;
+  border: 0 0 1px 0;
+  padding: 10px 10px;
+}
+
+entry {
+  padding: 10px;
+}
+
+listview {
+  cycle: false;
+  margin: 0 0 -1px 0;
+  scrollbar: false;
+}
+
+element {
+  border: 0 0 1px 0;
+  padding: 10px;
+}
+
+element selected {
+  text-color: #282828;
+  background-color: #7cafc2;
+}

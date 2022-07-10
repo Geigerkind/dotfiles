@@ -5,6 +5,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export HISTSIZE=20000
+export HISTFILESIZE=20000
+export PROMPT_COMMAND='history -a; history -r'
+
 . /usr/share/bash-completion/bash_completion
 
 # get current branch in git repo

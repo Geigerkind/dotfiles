@@ -1,0 +1,44 @@
+bar {
+    position top
+    swaybar_command waybar
+
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
+
+#for_window [class="^.*"] border none
+
+# Gaps
+smart_gaps off
+gaps inner 5
+gaps outer -5
+gaps bottom 1
+gaps top 1
+
+default_border pixel 2
+
+# Theming
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'oomox-zerodark'
+    gsettings set $gnome-schema icon-theme 'oomox-zerodark'
+    gsettings set $gnome-schema cursor-theme 'Breeze'
+    gsettings set $gnome-schema font-name 'monospace 10'
+    gsettings set $gnome-schema document-font-name 'monospace 10'
+    gsettings set $gnome-schema monospace-font-name 'monospace 10'
+    gsettings set org.gtk.Settings.FileChooser window-size '(1100,700)'
+    gsettings set org.gnome.desktop.default-applications.terminal exec $term
+    gsettings set org.gnome.desktop.default-applications.terminal exec-arg -e
+    gsettings set org.gnome.desktop.wm.preferences button-layout ''
+}
+seat seat0 xcursor_theme Breeze 16
+font pango:monospace 10
+
+client.focused #ebdbb2 #ebdbb2 #ebdbb2 #ebdbb2 #ebdbb2
+client.unfocused #453a3a #453a3a #453a3a #453a3a #453a3a
+client.focused_inactive #453a3a #453a3a #453a3a #453a3a #453a3a
+
+output * bg /home/shino/.config/sway/bg.png fill

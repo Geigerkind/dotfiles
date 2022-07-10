@@ -92,7 +92,7 @@ cfdisk /dev/nvme1n1
 ## Second: Size: 512MB, Type: 'ext4'
 ## Third: Size: Rest, Type: 'ext4'
 ## Goto write and press enter
-``` 
+```
 
 #### Encrypt root partition
 ```sh
@@ -107,7 +107,7 @@ cryptsetup open /dev/nvme1n1p3 luks_root
 #### Format and mount file system
 ```sh
 # Format all partitions
-mkfs.vfat -n “EFI System Partition” /dev/nvme1n1p1
+mkfs.vfat -n “EFI System” /dev/nvme1n1p1
 mkfs.ext4 -L boot /dev/nvme1n1p2
 mkfs.ext4 -L root /dev/mapper/luks_root
 
@@ -124,7 +124,7 @@ dd if=/dev/zero of=swap bs=1M count=1024
 mkswap swap
 swapon swap
 chmod 0600 swap
-``` 
+```
 
 ### Update Pacman mirrors
 Find the mirror closes to you and copy it to the top of the list
@@ -138,12 +138,12 @@ vim /etc/pacman.d/mirrorslist
 pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmare networkmanager sudo vi vim bash-completion nano
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# Install packages that are used later
-pacman -S netctl dialog dhcpcd pulseaudio alsa linux-headers
-pacman -S xf86-video-intel xf86-video-nouveau mesa mesa-demos acpi acpid
-
 # Change root to new system
 arch-chroot /mnt
+
+# Install packages that are used later
+pacman -S netctl dialog dhcpcd pulseaudio alsa linux-headers ntfs-3g
+pacman -S xf86-video-intel xf86-video-nouveau mesa mesa-demos acpi acpid
 
 # Time zone
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
@@ -174,7 +174,7 @@ passwd shino
 
 ## Uncomment wheel group
 vim /etc/sudoers
-``` 
+```
 
 ### Bootloader
 ```sh
@@ -193,7 +193,7 @@ mkinitcpio -p linux
 grub-install --boot-directory=/boot --efi-directory=/boot/efi /dev/nvme1n1p2
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-mkconfig -o /boot/efi/EFI/arch/grub.cfg
-``` 
+```
 
 ### Exit and reboot
 ```sh
@@ -204,8 +204,9 @@ reboot
 ### Configuration
 #### Installing more essentials
 ```sh
-sudo pacman -S zip unzip tar unrar wget htop clang cmake git python openssh npm pacman-contrib pkgconfig autoconf automake man p7zip bzip2 zstd xz gzip
-``` 
+dhcpcd
+sudo pacman -S zip unzip tar unrar wget htop clang cmake git python go openssh npm pacman-contrib pkgconfig autoconf automake man p7zip bzip2 zstd xz gzip
+```
 
 #### Network
 ```sh
@@ -218,7 +219,7 @@ sudo systemctl enable --now acpid
 ```sh
 sudo pacman -S intel-ucode
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-``` 
+```
 
 #### App Armor
 ```sh
@@ -226,7 +227,7 @@ sudo pacman -S apparmor
 sudo systemctl enable --now apparmor.service
 
 # Edit the grub configuration
-vim /etc/default/grub
+sudo vim /etc/default/grub
 # GRUB_CMDLINE_LINUX=”apparmor=1 lsm=lockdown,yama,apparmor cryptdevice=/dev/nvme1n1p3:luks_root”
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
@@ -241,7 +242,7 @@ sudo ufw enable
 #### YAY: Aur Repos
 ```sh
 # Improve makepkg compile time
-sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j12"/g' /etc/makepkg.conf>
+sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j12"/g' /etc/makepkg.conf
 
 # Installing yay
 ## Im not sure if yay is in the community repo or not, you should check it before proceeding
@@ -259,19 +260,31 @@ rm -rf yay
 ```sh
 yay -s system76-io-dkms system76-dkms system76-firmware-daemon firmware-manager-git system76-acpi-dkms system76-driver
 
-systemctl enable --now system76-firmware-daemon
-systemctl enable --now system76-backlight --user
-systemctl enable --now system76
-``` 
+# TODO: sha512 error?
+
+sudo systemctl enable --now system76-firmware-daemon
+# TODO: DIdnt work?
+sudo systemctl enable --now system76-backlight --user
+sudo systemctl enable --now system76
+```
 
 #### Graphics
-The Oryx Pro 5 comes with an integrated and discrete graphics card. 
-As I only use this laptop for work, I skipped this step. 
+The Oryx Pro 5 comes with an integrated and discrete graphics card.
+As I only use this laptop for work, I skipped this step.
 For more information visit this [repo](https://github.com/LegendaryLinux/arch76-oryxpro5)
 ```sh
-sudo pacman -S nvidia nvidia-utils
+sudo pacman -S nvidia nvidia-utils nvidia-settings
+
+# mkinitcpio
+# MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+sudo vim /etc/mkinitcpio.conf
+sudo mkinitcpio -P
+
+# grub config
+# Add rd.driver.blacklist=nouveau nvidia-drm.modeset=1 to GRUB_CMDLINE_LINUX_DEFAULT
+sudo vim /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
-You can test it with `glmark2` which can be found in the AUR repos.
 
 #### Audio
 ```sh
@@ -281,13 +294,13 @@ pacman -S alsa alsa-firmware pulseaudio pavucontrol
 echo "options snd_hda_intel probe_mask=1" > /etc/modprobe.d/audio-patch.conf
 
 # Reboot to apply it to the system
-``` 
+```
 
 #### Java
 ```sh
 sudo pacman -S jre-openjdk jdk-openjdk
 sudo archlinux-java set java-17-openjdk
-``` 
+```
 
 #### Anti-Virus
 Required by all companies, here is one that doesnt annoy much
@@ -296,19 +309,13 @@ sudo pacman -S clamav
 freshclam
 sudo systemctl enable clamav-freshclam.service
 sudo systemctl start clamav-freshclam.service
-``` 
+```
 
 #### Configuring visible processes in top
 ```sh
 sudo -s
 echo "proc /proc proc defaults,nosuid,nodev,noexec,relatime,hidepid=2 0 0" >> /etc/fstab
 exit
-``` 
-
-#### Fonts
-Honestly, I just add everything and hope that it covers everything
-```sh
-yay -S ttf-jetbrains-mono noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-emoji ttf-liberation ttf-dejavu ttf-roboto ttf-inconsolata ttf-font-awesome ttf-ubuntu-font-family ttf-d2coding ttf-muli nerd-fonts-source-code-pro
 ```
 
 #### Applications
@@ -317,31 +324,48 @@ yay -S ttf-jetbrains-mono noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-
 yay -S firefox alacritty exa nautilus discord signal-desktop neofetch
 
 # Development
-yay -S intellij-idea-ultimate-edition rustup neovim go 
+yay -S intellij-idea-ultimate-edition rustup neovim nvim-packer-git
+
+# Work
+yay -S teams
+
+# Neovim
+cp -r dotfiles/nvim ~/.config/
+sudo mkdir /home/root/.config
+sudo cp -r dotfiles/nvim /home/root/.config/
+## Open a file and type :PackerInstall
 
 # Docker
 yay -S docker docker-compose
 sudo systemctl enable docker
-
-## TODO: Install Neovim
-``` 
+```
 
 #### Window Manager
 ```sh
-# Those packages we need in general
-yay -S xorg autotiling-git lightdm web-greeter
+# Get dotfiles
+git clone https://Geigerkind/dotfiles
 
-# TODO: Create lightdm config
-# Copy config to /etc/lightdm/lightdm.conf
-sudo systemctl enable lightdm.service
+# Those packages we need in general
+yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects qt5-svg vulkan-icd-loader vulkan-validation-layers
+
+# Configure sddm
+sudo cp -r dotfiles/config/sddm/sugar-candy /usr/share/sddm/themes/
+sudo cp dotfiles/config/sddm/Xsetup /usr/share/sddm/scripts/Xsetup
+sudo cp dotfiles/config/sddm/sddm.conf /etc/sddm.conf
+sudo systemctl enable sddm.conf
 ```
 
 ##### Wayland with sway
 ```sh
-yay -S sway swaylock swayidle waybar dmenu swaybg brightnessctl wofi
+yay -S sway swaylock swayidle waybar dmenu swaybg brightnessctl wofi pipewire-media-session mako wl-clipboard clipman
 
 # You may need to do this so brightnessctl works
 sudo chmod u+s /usr/bin/brightnessctl
+
+cp -r dotfiles/config/sway ~/.config/
+cp -r dotfiles/config/system ~/.config/
+cp -r dotfiles/config/waybar ~/.config/
+sudo cp dotfiles/config/sway.desktop /usr/share/wayland-sessions/
 
 ## TODO: Copy config
 ## TODO: Configuration and screensharing
@@ -354,4 +378,10 @@ sudo chmod u+s /usr/bin/brightnessctl
 yay -S i3-gaps polybar rofi
 
 ## TODO: Copy config
-``` 
+```
+
+#### Fonts
+Honestly, I just add everything and hope that it covers everything
+```sh
+yay -S ttf-jetbrains-mono ttf-caladea ttf-carlito ttf-opensans noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-emoji ttf-liberation ttf-dejavu ttf-roboto ttf-inconsolata ttf-font-awesome ttf-ubuntu-font-family ttf-d2coding ttf-muli nerd-fonts-source-code-pro
+```

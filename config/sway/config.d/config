@@ -1,0 +1,6 @@
+xwayland enable
+
+# Floating exceptions
+for_window [class="xfce-polkit"] floating enable
+for_window [title="Authentication required"] floating enable
+for_window [title="Picture in picture"] floating enable

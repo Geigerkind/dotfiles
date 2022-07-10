@@ -1,0 +1,10 @@
+exec swayidle -w \
+         timeout 1200 'swaylock -f -i /home/shino/.config/sway/bg.png' \
+         timeout 1100 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -i /home/shino/.config/sway/bg.png'
+
+exec autotiling &
+exec mako &
+exec udiskie &
+exec wl-paste -t text --watch clipman store &

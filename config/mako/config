@@ -1,0 +1,12 @@
+text-color=#282828
+background-color=#ebdbb2
+border-color=#282828
+default-timeout=8000
+font=JetBrains Mono 10
+border-radius=10
+
+[urgency=high]
+border-color=#FF0000
+default-timeout=0
+border-size=4
+layer=overlay

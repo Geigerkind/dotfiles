@@ -1,102 +1,74 @@
-
-// -*- mode: json -*-
-
 {
     "layer": "top",
-    "position": "top",
-    "height": 36,
-    "width": 1900,
-    "margin-top": 10,
-    "margin-left": 10,
-    "margin-right": 10,
-    "modules-left": [
-        "sway/workspaces",
-    ],
-
-    "modules-center": [
-        "sway/window",
-    ],
-
-    "modules-right": [
-        "disk",
-        "cpu",
-        "memory",
-        "pulseaudio",
-        "clock",
-        "tray"
-    ],
-
+    "height": 25,
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["pulseaudio", "network", "battery", "clock"],
     "sway/workspaces": {
-	  "disable-scroll": true,
-    "format": "{icon}",
-    "persistent_workspaces": {
-        "1": ["DP-4"],
-	      "2": ["DP-4"],
-        "3": ["DP-4"],
-	      "4": ["DP-4"],
-	      "5": ["DP-4"],
-	      "6": ["DVI-D-1"],
-	      "7": ["DVI-D-1"],
-	      "8": ["DVI-D-1"],
-	      "9": ["DVI-D-1"],
-	      "10": ["DVI-D-1"],
-	      "11": ["DP-2"],
-	      "12": ["DP-2"],
-	      "13": ["DP-2"],
-	      "14": ["DP-2"],
-	      "15": ["DP-2"],
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        }
     },
-    "format-icons": {
-        "1": "dev",
-        "2": "www",
-        "3": "game",
-        "4": "virt",
-        "5": "misc",
-        "6": "dev",
-        "7": "www",
-        "8": "sys",
-        "9": "virt",
-        "10": "misc",
-        "11": "dev",
-        "12": "www",
-        "13": "rec",
-        "14": "virt",
-        "15": "misc",
-    }
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
     },
-
-    "sway/window": {
-        "format": "{}",
-        "max-length": 50
-    },
-
     "clock": {
-        "format": "{:%H:%M}",
-        "tooltip": false
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
     },
-
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "",
+        "format-full": "100% ",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+    	"format": "{ifname}",
+	    "format-ethernet": "{ifname} ",
+        "format-wifi": "{essid} ",
+        "format-linked": "{ifname} (No IP) ",
+       	"format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    },
     "pulseaudio": {
-        "format": "vol: {volume:2}%",
-        "format-bluetooth": "vol: {volume}%",
-        "format-muted": "muted",
-        "scroll-step": 5,
-        "on-click": "pamixer -t",
-        "on-click-right": "pavucontrol"
+        "scroll-step": 0,
+        "format": "{icon} {volume}    {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
     },
-    "memory": {
-        "interval": 5,
-        "format": "mem: {}%"
-    },
-    "cpu": {
-        "interval": 5,
-        "format": "cpu: {usage:2}%"
-    },
-    "disk": {
-        "interval": 5,
-        "format": "disk: {percentage_used:2}%",
-        "path": "/"
-    },
-    "tray": {
-        "icon-size": 24
-    }
 }

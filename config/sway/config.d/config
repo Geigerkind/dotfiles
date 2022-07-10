@@ -4,3 +4,6 @@ xwayland enable
 for_window [class="xfce-polkit"] floating enable
 for_window [title="Authentication required"] floating enable
 for_window [title="Picture in picture"] floating enable
+
+# Spotify hack
+for_window [class="Spotify"] exec "sleep .1; pkill -RTMIN+4 waybar"

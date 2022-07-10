@@ -10,3 +10,6 @@ border-color=#FF0000
 default-timeout=0
 border-size=4
 layer=overlay
+
+[mode=dnd]
+invisible=1

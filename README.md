@@ -321,7 +321,7 @@ exit
 #### Applications
 ```sh
 # Daily utensils
-yay -S firefox alacritty exa nautilus discord signal-desktop neofetch
+yay -S firefox alacritty exa nautilus discord signal-desktop neofetch spotify
 
 # Development
 yay -S intellij-idea-ultimate-edition rustup neovim nvim-packer-git
@@ -365,7 +365,7 @@ mkdir Screenshots
 
 ##### Wayland with sway
 ```sh
-yay -S sway swaylock swayidle waybar dmenu swaybg brightnessctl wofi pipewire-media-session mako wl-clipboard clipman swayshot
+yay -S playerctl sway swaylock swayidle waybar dmenu swaybg brightnessctl wofi pipewire-media-session mako wl-clipboard clipman swayshot dunst
 # You may need to do this so brightnessctl works
 sudo chmod u+s /usr/bin/brightnessctl
 

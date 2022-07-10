@@ -1,9 +1,9 @@
 {
     "layer": "top",
     "height": 25,
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify-monitor", "custom/spotify-metadata", "custom/spotify-prev", "custom/spotify-play-pause", "custom/spotify-next", "custom/spotify-quit"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "battery", "clock"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "network", "battery", "clock", "custom/mako"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -20,6 +20,62 @@
             "9": "9",
             "10": "10"
         }
+    },
+    "custom/spotify-monitor": {
+        "interval": 5,
+        "exec": "~/.config/waybar/spotify/monitor.sh",
+        "signal": 4
+    },
+    "custom/spotify-metadata": {
+        "format": " {}",
+        "max-length": 30,
+        "interval": "once",
+        "return-type": "json",
+        "exec": "~/.config/waybar/spotify/metadata.sh",
+        "on-click": "sway workspace music",
+        "signal": 5
+    },
+    "custom/spotify-play-pause": {
+        "format": "{}",
+        "interval": "once",
+        "return-type": "json",
+        "exec": "~/.config/waybar/spotify/play-pause.sh",
+        "on-click": "~/.config/waybar/spotify/controls.sh",
+        "signal": 5
+    },
+    "custom/spotify-next": {
+        "format": "怜",
+        "return-type": "json",
+        "interval": "once",
+        "exec": "~/.config/waybar/spotify/metadata.sh",
+        "on-click": "~/.config/waybar/spotify/controls.sh next",
+        "signal": 5
+    },
+    "custom/spotify-prev": {
+        "format": "玲",
+        "interval": "once",
+        "return-type": "json",
+        "exec": "~/.config/waybar/spotify/metadata.sh",
+        "on-click": "~/.config/waybar/spotify/controls.sh prev",
+        "signal": 5
+    },
+    "custom/spotify-quit": {
+        "format": "",
+        "interval": "once",
+        "return-type": "json",
+        "exec": "~/.config/waybar/spotify/metadata.sh",
+        "on-click": "~/.config/waybar/spotify/quit.sh ",
+        "signal": 6
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{}% ",
+        "max-length": 10
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -53,7 +109,7 @@
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        "scroll-step": 0,
+        "scroll-step": 2,
         "format": "{icon} {volume}    {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
@@ -71,4 +127,9 @@
         },
         "on-click": "pavucontrol"
     },
+    "custom/mako": {
+        "exec": "~/.config/waybar/mako.sh",
+        "on-click": "~/.config/waybar/mako_toggle.sh",
+        "restart-interval": 1,
+    }
 }

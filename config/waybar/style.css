@@ -56,13 +56,16 @@ window#waybar.hidden {
 #pulseaudio,
 #mode,
 #idle_inhibitor,
+#cpu,
+#memory,
+#custom-mako,
 #mpd {
     padding: 0 14px;
     margin: 0 0px;
     color: #ffffff;
 }
 
-#clock {
+#clock, #cpu, #memory, #custom-mako {
     color: #000000;
     background-color: #ebdbb2;
 }
@@ -137,4 +140,41 @@ label:focus {
     border-radius: 5px;
     margin-right: 2px;
     margin-left: 5px;
+}
+
+#custom-spotify-metadata, #custom-spotify-play-pause, #custom-spotify-prev, #custom-spotify-next, #custom-spotify-quit {
+    color:              #ebdbb2;
+    font-size:          15px;
+    padding:            1px 10px;
+    background:         @black-trans;
+}
+#custom-spotify-metadata {
+    min-width:          300px;
+    margin:             0px 0px 0px 7px;
+    border-radius:      0px 0px 0px 5px;
+}
+#custom-spotify-metadata.playing {
+    color:              #ebdbb2;
+    border-bottom:      2px solid @green;
+}
+#custom-spotify-metadata.paused {
+    color:              #ebdbb2;
+    border-bottom:      2px solid @yellow;
+}
+#custom-spotify-prev {
+    margin:             0px 0px 0px 0px;
+    border-bottom:      2px solid @grey-light;
+}
+#custom-spotify-play-pause {
+    margin:             0px 0px 0px 0px;
+    border-bottom:      2px solid @grey-light;
+}
+#custom-spotify-next {
+    margin:             0px 0px 0px 0px;
+    border-bottom:      2px solid @grey-light;
+}
+#custom-spotify-quit {
+    margin:             0px 0px 0px 0px;
+    border-radius:      0px 0px 5px 0px;
+    border-bottom:      2px solid @grey-light;
 }

@@ -5,6 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+shopt -s histappend
 export HISTSIZE=20000
 export HISTFILESIZE=20000
 export PROMPT_COMMAND='history -a; history -r'

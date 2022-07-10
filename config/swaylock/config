@@ -1,6 +1,6 @@
 color=31455b
 
-indicator-idle-visible
+#indicator-idle-visible
 indicator-radius=100
 
 inside-color=353535ef

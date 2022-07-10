@@ -1,4 +1,4 @@
-# Archlinux Sway/i3 setup on a system76 Oryx Pro 5
+# Archlinux Sway/i3 setup on a system76 Oryx Pro 7
 ## Features
 * Full disk encryption
 * System76 packages installed
@@ -353,12 +353,19 @@ sudo cp -r dotfiles/config/sddm/sugar-candy /usr/share/sddm/themes/
 sudo cp dotfiles/config/sddm/Xsetup /usr/share/sddm/scripts/Xsetup
 sudo cp dotfiles/config/sddm/sddm.conf /etc/sddm.conf
 sudo systemctl enable sddm.conf
+
+# Configure alacryitty
+cp -r dotfiles/config/alacritty ~/.config/
+
+# Configure Home
+mkdir Repos
+mkdir Work
+mkdir Screenshots
 ```
 
 ##### Wayland with sway
 ```sh
-yay -S sway swaylock swayidle waybar dmenu swaybg brightnessctl wofi pipewire-media-session mako wl-clipboard clipman
-
+yay -S sway swaylock swayidle waybar dmenu swaybg brightnessctl wofi pipewire-media-session mako wl-clipboard clipman swayshot
 # You may need to do this so brightnessctl works
 sudo chmod u+s /usr/bin/brightnessctl
 
@@ -366,11 +373,8 @@ cp -r dotfiles/config/sway ~/.config/
 cp -r dotfiles/config/system ~/.config/
 cp -r dotfiles/config/waybar ~/.config/
 sudo cp dotfiles/config/sway.desktop /usr/share/wayland-sessions/
-
-## TODO: Copy config
-## TODO: Configuration and screensharing
-## TODO: Configuration with nvidia gpu
-## TODO: Startup with nvidia gpu
+cp -r dotfiles/config/mako ~/.config/
+cp -r dotfiles/config/wofi ~/.config/
 ```
 
 #### Xorg with i3

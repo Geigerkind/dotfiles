@@ -8,6 +8,7 @@
 export HISTSIZE=20000
 export HISTFILESIZE=20000
 export PROMPT_COMMAND='history -a; history -r'
+export HISTCONTROL=ignoreboth
 
 . /usr/share/bash-completion/bash_completion
 

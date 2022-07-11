@@ -355,6 +355,8 @@ cp -r dotfiles/config/ulauncher ~/.config/
 mkdir Repos
 mkdir Work
 mkdir Screenshots
+
+cp dotfiles/.bashrc ~/
 ```
 
 ##### Wayland with sway

@@ -359,7 +359,7 @@ mkdir Screenshots
 
 ##### Wayland with sway
 ```sh
-yay -S playerctl sway swaylock swayidle waybar dmenu swaybg brightnessctl pipewire-media-session mako wl-clipboard clipman swayshot
+yay -S playerctl sway swaylock swayidle waybar swaybg brightnessctl pipewire-media-session mako wl-clipboard clipman swayshot
 # You may need to do this so brightnessctl works
 sudo chmod u+s /usr/bin/brightnessctl
 

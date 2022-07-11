@@ -268,7 +268,7 @@ sudo systemctl enable --now system76
 ```
 
 #### Graphics
-The Oryx Pro 5 comes with an integrated and discrete graphics card.
+The Oryx Pro 7 comes with an integrated and discrete graphics card.
 As I only use this laptop for work, I skipped this step.
 For more information visit this [repo](https://github.com/LegendaryLinux/arch76-oryxpro5)
 ```sh
@@ -357,7 +357,7 @@ mkdir Screenshots
 
 ##### Wayland with sway
 ```sh
-yay -S playerctl sway swaylock swayidle waybar dmenu swaybg brightnessctl wofi pipewire-media-session mako wl-clipboard clipman swayshot dunst
+yay -S playerctl sway swaylock swayidle waybar dmenu swaybg brightnessctl wofi pipewire-media-session mako wl-clipboard clipman swayshot
 # You may need to do this so brightnessctl works
 sudo chmod u+s /usr/bin/brightnessctl
 

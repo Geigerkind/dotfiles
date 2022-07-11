@@ -42,3 +42,6 @@ client.unfocused #453a3a #453a3a #453a3a #453a3a #453a3a
 client.focused_inactive #453a3a #453a3a #453a3a #453a3a #453a3a
 
 output * bg /home/shino/.config/sway/bg.png fill
+
+# Ulauncher
+for_window [app_id="ulauncher"] border none

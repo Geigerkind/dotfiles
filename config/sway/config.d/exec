@@ -8,3 +8,4 @@ exec autotiling &
 exec mako &
 exec udiskie &
 exec wl-paste -t text --watch clipman store &
+exec ulauncher --hide-window &

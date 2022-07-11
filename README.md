@@ -339,6 +339,7 @@ git clone https://Geigerkind/dotfiles
 
 # Those packages we need in general
 yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects qt5-svg vulkan-icd-loader vulkan-validation-layers
+yay -S ulauncher translate-shell
 
 # Configure sddm
 sudo cp -r dotfiles/config/sddm/sugar-candy /usr/share/sddm/themes/
@@ -346,8 +347,9 @@ sudo cp dotfiles/config/sddm/Xsetup /usr/share/sddm/scripts/Xsetup
 sudo cp dotfiles/config/sddm/sddm.conf /etc/sddm.conf
 sudo systemctl enable sddm.conf
 
-# Configure alacryitty
+# Configure
 cp -r dotfiles/config/alacritty ~/.config/
+cp -r dotfiles/config/ulauncher ~/.config/
 
 # Configure Home
 mkdir Repos
@@ -357,7 +359,7 @@ mkdir Screenshots
 
 ##### Wayland with sway
 ```sh
-yay -S playerctl sway swaylock swayidle waybar dmenu swaybg brightnessctl wofi pipewire-media-session mako wl-clipboard clipman swayshot
+yay -S playerctl sway swaylock swayidle waybar dmenu swaybg brightnessctl pipewire-media-session mako wl-clipboard clipman swayshot
 # You may need to do this so brightnessctl works
 sudo chmod u+s /usr/bin/brightnessctl
 
@@ -366,7 +368,6 @@ cp -r dotfiles/config/system ~/.config/
 cp -r dotfiles/config/waybar ~/.config/
 sudo cp dotfiles/config/sway.desktop /usr/share/wayland-sessions/
 cp -r dotfiles/config/mako ~/.config/
-cp -r dotfiles/config/wofi ~/.config/
 ```
 
 #### Xorg with i3

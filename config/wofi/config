@@ -1,9 +1,0 @@
-stylesheet=/home/satyrn/.config/wofi/style.css
-show=drun
-width=1000
-height=488
-columns=2
-term=alacritty
-always_parse_args=true
-allow-images=true
-insensitive=true

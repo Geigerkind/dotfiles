@@ -88,7 +88,7 @@ fdisk /dev/nvme1n1
 cfdisk /dev/nvme1n1
 # Create 3 partitions
 ## Goto new, enter size and select type, 'Free Space'
-## First: Size: 256MB, Type: 'EFI System'
+## First: Size: 256MB, Type: 'EFI'
 ## Second: Size: 512MB, Type: 'ext4'
 ## Third: Size: Rest, Type: 'ext4'
 ## Goto write and press enter
@@ -309,13 +309,6 @@ sudo pacman -S clamav
 freshclam
 sudo systemctl enable clamav-freshclam.service
 sudo systemctl start clamav-freshclam.service
-```
-
-#### Configuring visible processes in top
-```sh
-sudo -s
-echo "proc /proc proc defaults,nosuid,nodev,noexec,relatime,hidepid=2 0 0" >> /etc/fstab
-exit
 ```
 
 #### Applications

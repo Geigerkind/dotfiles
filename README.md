@@ -107,7 +107,7 @@ cryptsetup open /dev/nvme1n1p3 luks_root
 #### Format and mount file system
 ```sh
 # Format all partitions
-mkfs.vfat -n “EFI System” /dev/nvme1n1p1
+mkfs.vfat -n “EFI” /dev/nvme1n1p1
 mkfs.ext4 -L boot /dev/nvme1n1p2
 mkfs.ext4 -L root /dev/mapper/luks_root
 
@@ -260,11 +260,10 @@ rm -rf yay
 ```sh
 yay -s system76-io-dkms system76-dkms system76-firmware-daemon firmware-manager-git system76-acpi-dkms system76-driver
 
-# TODO: sha512 error?
+# Fixes sha512 error during dkms
+sudo ln -s /usr/bin/sha512sum /usr/bin/sha512
 
 sudo systemctl enable --now system76-firmware-daemon
-# TODO: DIdnt work?
-sudo systemctl enable --now system76-backlight --user
 sudo systemctl enable --now system76
 ```
 

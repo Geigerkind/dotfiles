@@ -5,6 +5,10 @@
 * Wayland and xorg setups
 * Configuration for a nice ricing
 
+## Preview
+### Xorg with i3
+![i3](preview/i3.png)
+
 ## Installation
 ### Create a bootable ArchLinux USB drive
 ```sh

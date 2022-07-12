@@ -320,7 +320,9 @@ yay -S firefox alacritty exa nautilus discord signal-desktop neofetch spotify
 yay -S intellij-idea-ultimate-edition rustup neovim nvim-packer-git
 
 # Work
-yay -S teams
+yay -S teams zoom keepassxc virtualbox
+
+# TODO: OpenVPN
 
 # Neovim
 cp -r dotfiles/nvim ~/.config/
@@ -340,7 +342,9 @@ git clone https://Geigerkind/dotfiles
 
 # Those packages we need in general
 yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects qt5-svg vulkan-icd-loader vulkan-validation-layers
-yay -S ulauncher translate-shell
+yay -S ulauncher translate-shell python-pip
+
+pip install requests --user
 
 # Configure sddm
 sudo cp -r dotfiles/config/sddm/sugar-candy /usr/share/sddm/themes/
@@ -375,13 +379,16 @@ cp -r dotfiles/config/mako ~/.config/
 
 #### Xorg with i3
 ```sh
-yay -S i3-gaps polybar rofi
+yay -S i3-gaps polybar feh picom dunst network-manager-applet flameshot i3lock i3lockmore-git copyq
 
-## TODO: Copy config
+cp -r dotfiles/config/i3 ~/.config/
+cp -r dotfiles/config/polybar ~/.config/
+cp -r dotfiles/config/dunst ~/.config/
+cp -r dotfiles/config/picom ~/.config/
 ```
 
 #### Fonts
 Honestly, I just add everything and hope that it covers everything
 ```sh
-yay -S ttf-jetbrains-mono ttf-caladea ttf-carlito ttf-opensans noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-emoji ttf-liberation ttf-dejavu ttf-roboto ttf-inconsolata ttf-font-awesome ttf-ubuntu-font-family ttf-d2coding ttf-muli nerd-fonts-source-code-pro
+yay -S ttf-jetbrains-mono ttf-caladea ttf-carlito ttf-opensans noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-emoji ttf-liberation ttf-dejavu ttf-roboto ttf-inconsolata ttf-font-awesome ttf-ubuntu-font-family ttf-d2coding ttf-muli nerd-fonts-source-code-pro ttf-unifont siji-ttf termsyn-font
 ```

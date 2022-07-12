@@ -1,0 +1,2 @@
+#for_window [instance="spotify"] move to workspace $ws10
+#for_window [instance="discord"] move to workspace $ws9

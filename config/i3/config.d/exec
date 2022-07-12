@@ -1,0 +1,12 @@
+exec_always "setxkbmap -layout de"
+exec --no-startup-id feh --bg-fill $HOME/.config/sway/bg.png
+exec --no-startup-id picom --experimental-backends &
+exec --no-startup-id copyq &
+exec --no-startup-id ulauncher --hide-window &
+exec --no-startup-id udiskie &
+exec --no-startup-id dunst &
+exec --no-startup-id nm-applet &
+exec_always --no-startup-id autotiling
+exec_always "sh $HOME/.config/polybar/launch.sh"
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lockmore --image-fill $HOME/.config/sway/bg.png --nofork
+exec_always xrandr --output eDP1 --mode 1920x1080 --output DP-0 --mode 2560x1440 --pos 1920x0 --output HDMI-0 --mode 2560x1440 --pos 4480x0 --output DP-1 --mode 2560x1440 --pos 7040x0

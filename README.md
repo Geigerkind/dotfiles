@@ -258,13 +258,14 @@ rm -rf yay
 
 #### System76 proprietary drivers
 ```sh
-yay -s system76-io-dkms system76-dkms system76-firmware-daemon firmware-manager-git system76-acpi-dkms system76-driver
+yay -s system76-io-dkms system76-dkms system76-firmware-daemon firmware-manager-git system76-acpi-dkms system76-driver system76-power
 
 # Fixes sha512 error during dkms
 sudo ln -s /usr/bin/sha512sum /usr/bin/sha512
 
 sudo systemctl enable --now system76-firmware-daemon
 sudo systemctl enable --now system76
+sudo systemctl enable --now com.system76.PowerDaemon.service
 ```
 
 #### Graphics

@@ -91,6 +91,7 @@ bindsym $mod+r mode "resize"
 
 # Custom bindings
 bindsym $mod+Escape exec i3lockmore --image-fill $HOME/.config/sway/bg.png
+bindsym $mod+Shift+p exec "bash $HOME/.config/display_detector.sh"
 
 # TODO
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%

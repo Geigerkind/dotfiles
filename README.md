@@ -404,6 +404,8 @@ cp -r dotfiles/config/i3 ~/.config/
 cp -r dotfiles/config/polybar ~/.config/
 cp -r dotfiles/config/dunst ~/.config/
 cp -r dotfiles/config/picom ~/.config/
+cp dotfiles/xrandr_displays.sh ~/.config/
+cp dotfiles/display_detector.sh ~/.config/
 ```
 
 #### Fonts

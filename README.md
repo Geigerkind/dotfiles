@@ -139,7 +139,7 @@ vim /etc/pacman.d/mirrorslist
 ### Installing ArchLinux
 ```sh
 # Pacstrap
-pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmare networkmanager sudo vi vim bash-completion nano
+pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmare networkmanager sudo vi gvim bash-completion nano
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Change root to new system
@@ -398,7 +398,7 @@ cp -r dotfiles/config/mako ~/.config/
 
 #### Xorg with i3
 ```sh
-yay -S i3-gaps polybar feh picom dunst network-manager-applet flameshot i3lock i3lockmore-git copyq
+yay -S i3-gaps polybar feh picom dunst network-manager-applet flameshot i3lock i3lockmore-git copyq xss-lock xclip
 
 cp -r dotfiles/config/i3 ~/.config/
 cp -r dotfiles/config/polybar ~/.config/

@@ -77,8 +77,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Resize
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym i resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
@@ -93,12 +93,15 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Escape exec i3lockmore --image-fill $HOME/.config/sway/bg.png
 bindsym $mod+Shift+p exec "bash $HOME/.config/display_detector.sh"
 
-# TODO
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute        exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym $mod+F10 exec alacritty -e alsamixer
-bindsym $mod+Shift+s exec "flameshot gui"
+bindsym $mod+F1 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+F2 exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym $mod+F3 exec pactl set-sink-volume @DEFAULT_SINK@ +2%
 
-bindsym XF86MonBrightnessUp   exec  $SCRIPT_DIR/bright Up
-bindsym XF86MonBrightnessDown exec  $SCRIPT_DIR/bright Down
+bindsym $mod+F4 exec "bash $home/.config/waybar/spotify/controls.sh"
+bindsym $mod+F5 exec "bash $home/.config/waybar/spotify/controls.sh prev"
+bindsym $mod+F6 exec "bash $home/.config/waybar/spotify/controls.sh next"
+
+bindsym $mod+F7 exec brightnessctl set 5%-
+bindsym $mod+F8 exec brightnessctl set +5%
+
+bindsym $mod+Shift+s exec "flameshot gui"

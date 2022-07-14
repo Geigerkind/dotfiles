@@ -134,16 +134,21 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym $mod+f1 exec pactl set-sink-mute 0 1
-bindsym $mod+f2 exec pactl set-sink-volume @DEFAULT_SINK@ -1%
-bindsym $mod+f3 exec pactl set-sink-volume @DEFAULT_SINK@ +1%
-bindsym $mod+f4 exec pactl set-sink-mute 0 0
-bindsym $mod+f5 exec brightnessctl set 5%-
-bindsym $mod+f6 exec brightnessctl set +5%
+bindsym $mod+f1 exec pactl set-sink-mute toggle
+bindsym $mod+f2 exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym $mod+f3 exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+
+bindsym $mod+f4 exec "bash $home/.config/waybar/spotify/controls.sh"
+bindsym $mod+f5 exec "bash $home/.config/waybar/spotify/controls.sh prev"
+bindsym $mod+f6 exec "bash $home/.config/waybar/spotify/controls.sh next"
+
+bindsym $mod+f7 exec brightnessctl set 5%-
+bindsym $mod+f8 exec brightnessctl set +5%
+
 bindsym $mod+p exec swaymsg "output * dpms off"
 bindsym $mod+o exec swaymsg "output * dpms on"
 bindsym $mod+Escape exec swaylock -f -i /home/shino/.config/sway/bg.png
 
 bindsym $mod+f11 exec swayshot
 bindsym $mod+f10 exec swayshot window
-bindsym $mod+f9 exec swayshot region
+bindsym $mod+Shift+s exec swayshot region

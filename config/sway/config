@@ -6,3 +6,5 @@ include config.d/theming
 include config.d/workspaces
 include config.d/config
 include config.d/exec
+
+output DP-1 mode 2560x1440@60Hz

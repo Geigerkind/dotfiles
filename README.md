@@ -332,6 +332,10 @@ sudo systemctl start clamav-freshclam.service
 # Daily utensils
 yay -S firefox alacritty exa nautilus discord signal-desktop neofetch spotify libreoffice
 
+# Misc
+yay -S btop
+cp -r dotfiles/config/btop ~/.config/
+
 # Development
 yay -S intellij-idea-ultimate-edition rustup neovim nvim-packer-git
 

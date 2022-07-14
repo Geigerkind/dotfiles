@@ -273,21 +273,33 @@ sudo systemctl enable --now com.system76.PowerDaemon.service
 ```
 
 #### Graphics
-The Oryx Pro 7 comes with an integrated and discrete graphics card.
-As I only use this laptop for work, I skipped this step.
-For more information visit this [repo](https://github.com/LegendaryLinux/arch76-oryxpro5)
+The Oryx Pro 7 comes with an integrated and discrete graphics card. To make use of the dGPU and all displays we need to use PRIME.
 ```sh
-sudo pacman -S nvidia nvidia-utils nvidia-settings
+sudo yay -S nvidia nvidia-utils nvidia-settings nvidia-prime optimus-manager
+
+# PRIME
+sudo cp dotfiles/optimus-manager.conf /etc/optimus-manager/
+sudo systemctl enable optimus-manager
 
 # mkinitcpio
-# MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+# MODULES=(intel_agp i915)
 sudo vim /etc/mkinitcpio.conf
 sudo mkinitcpio -P
 
 # grub config
-# Add rd.driver.blacklist=nouveau nvidia-drm.modeset=1 to GRUB_CMDLINE_LINUX_DEFAULT
+# fbcon=map:1 forces luks output on the builtin display during boot when external monitors are connected
+# However this also causes that if none are selected you are blind again to type luks, which is why we need to add another grub entry
+# Add fbcon=map:1 rd.driver.blacklist=nouveau nvidia-drm.modeset=1 to GRUB_CMDLINE_LINUX_DEFAULT
 sudo vim /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo cp dotfiles/40-custom.conf /etc/grub.d/
+
+# Enable dGPU
+reboot
+prime-offload
+optimus-manager --switch nvidia
+system76-power graphics nvidia
+reboot
 ```
 
 #### Audio
@@ -345,10 +357,13 @@ sudo systemctl enable docker
 git clone https://Geigerkind/dotfiles
 
 # Those packages we need in general
-yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects qt5-svg vulkan-icd-loader vulkan-validation-layers
+yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects qt5-svg vulkan-icd-loader vulkan-validation-layers qt5-virtualkeyboard
 yay -S ulauncher translate-shell python-pip
 
 pip install requests --user
+
+# Xorg config
+sudo cp dotfiles/50-gpu.conf /etc/X11/xorg.conf.d/
 
 # Configure sddm
 sudo cp -r dotfiles/config/sddm/sugar-candy /usr/share/sddm/themes/

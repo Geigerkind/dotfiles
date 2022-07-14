@@ -7,6 +7,9 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch Polybar, using default config location ~/.config/polybar/config
-polybar example &
+MONITORS=("eDP-1-1" "DP-0" "HDMI-0" "DP-1" "DP-2")
+for MONITOR in "${MONITORS[@]}"; do
+  xrandr | grep -q "${MONITOR} connected" && POLYBAR_MONITOR=${MONITOR} polybar std &
+done
 
 echo "Polybar launched..."

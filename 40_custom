@@ -1,0 +1,19 @@
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+
+menuentry "Arch without fbcon" {
+	load_video
+	set gfxpayload=keep
+	insmod gzio
+	insmod part_gpt
+	insmod ext2
+	search --no-floppy --fs-uuid --set=root 3bd08def-ddb8-4ff0-a9f2-554ab6981c7e
+	echo	'Loading Linux linux without fbcon ...'
+	linux	/vmlinuz-linux root=UUID=120d020a-05e7-4ee3-9a89-f6b93068fa6a rw apparmor=1 lsm=lockdown,yama,apparmor cryptdevice=/dev/nvme1n1p3:luks_root loglevel=3 quiet rd.driver.blacklist=nouveau nvidia-drm.modeset=1
+	echo	'Loading initial ramdisk ...'
+	initrd	/intel-ucode.img /initramfs-linux.img
+}
+

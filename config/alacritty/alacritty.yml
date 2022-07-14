@@ -7,9 +7,10 @@ window:
     y: 0
 
   padding:
-    x: 30
-    y: 20
+    x: 5
+    y: 5
 
+  opacity: 0.95
   dynamic_padding: false
   decorations: none
   title: Alacritty
@@ -30,9 +31,6 @@ font:
   offset:
     x: 0
     y: 0
-
-
-background_opacity: 0.88
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"

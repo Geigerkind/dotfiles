@@ -330,13 +330,13 @@ sudo systemctl start clamav-freshclam.service
 #### Applications
 ```sh
 # Daily utensils
-yay -S firefox alacritty exa nautilus discord signal-desktop neofetch spotify
+yay -S firefox alacritty exa nautilus discord signal-desktop neofetch spotify libreoffice
 
 # Development
 yay -S intellij-idea-ultimate-edition rustup neovim nvim-packer-git
 
 # Work
-yay -S teams zoom keepassxc virtualbox
+yay -S teams zoom keepassxc virtualbox terraform chromium
 
 # TODO: OpenVPN
 

@@ -94,6 +94,7 @@ alias pkDel='yay -Rs'
 alias pkClean='yay -Scc'
 alias pkUpdate='yay -Syu'
 alias untar='tar -xzf'
+alias g="git"
 
 # System Util
 alias grubRedoConfig='sudo grub-mkconfig -o /boot/grub/grub.cfg'

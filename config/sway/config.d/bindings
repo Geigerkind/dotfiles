@@ -150,5 +150,6 @@ bindsym $mod+o exec swaymsg "output * dpms on"
 bindsym $mod+Escape exec swaylock -f -i /home/shino/.config/sway/bg.png
 
 bindsym $mod+f11 exec swayshot
+bindym $mod+Print exec swayshot window
 bindsym $mod+f10 exec swayshot window
 bindsym $mod+Shift+s exec swayshot region

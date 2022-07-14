@@ -292,7 +292,7 @@ sudo mkinitcpio -P
 # Add fbcon=map:1 rd.driver.blacklist=nouveau nvidia-drm.modeset=1 to GRUB_CMDLINE_LINUX_DEFAULT
 sudo vim /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-sudo cp dotfiles/40-custom.conf /etc/grub.d/
+sudo cp dotfiles/40_custom /etc/grub.d/
 
 # Enable dGPU
 reboot
@@ -385,6 +385,20 @@ mkdir Work
 mkdir Screenshots
 
 cp dotfiles/.bashrc ~/
+
+# Fancy decryption
+yay -S plymouth-git
+# Edit mkinitcpio and add "plymouth plymouth-encrypt" in HOOKS auf "udev"
+sudo mkinitcpio -p linux
+
+# Edit /etc/default/grub
+# Add "quiet splash" to GRUB_CMDLINE_LINUX_DEFAULT
+grub-mkconfig -o /boot/grub/grub.cfg
+
+sudo cp -r dotfiles/plymouth/pop-basic /usr/share/plymouth/themes/
+sudp cp dotfiles/plymouth/plymouthd.conf /etc/plymouth/
+sudo cp dotfiles/plymouth/sddm-plymouth.service
+sudo plymouth-set-default-theme pop-basic -R
 ```
 
 ##### Wayland with sway

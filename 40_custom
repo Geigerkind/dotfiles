@@ -12,8 +12,7 @@ menuentry "Arch without fbcon" {
 	insmod ext2
 	search --no-floppy --fs-uuid --set=root 3bd08def-ddb8-4ff0-a9f2-554ab6981c7e
 	echo	'Loading Linux linux without fbcon ...'
-	linux	/vmlinuz-linux root=UUID=120d020a-05e7-4ee3-9a89-f6b93068fa6a rw apparmor=1 lsm=lockdown,yama,apparmor cryptdevice=/dev/nvme1n1p3:luks_root loglevel=3 quiet rd.driver.blacklist=nouveau nvidia-drm.modeset=1
+	linux	/vmlinuz-linux root=UUID=120d020a-05e7-4ee3-9a89-f6b93068fa6a rw apparmor=1 lsm=lockdown,yama,apparmor cryptdevice=/dev/nvme1n1p3:luks_root quiet splash loglevel=3 rd.driver.blacklist=nouveau nvidia-drm.modeset=1
 	echo	'Loading initial ramdisk ...'
 	initrd	/intel-ucode.img /initramfs-linux.img
 }
-

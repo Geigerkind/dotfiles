@@ -1,0 +1,58 @@
+[Plymouth Theme]
+Name=Pop Basic
+Description=Re-Write of Pop!_OS decryption screen using two-step rather than plymouth script.
+ModuleName=two-step
+
+[two-step]
+Font=Fira Sans Regular 11
+TitleFont=Fira Sans Regular 11
+ImageDir=/usr/share/plymouth/themes/pop-basic
+DialogHorizontalAlignment=.5
+DialogVerticalAlignment=.5
+TitleHorizontalAlignment=.5
+TitleVerticalAlignment=.382
+HorizontalAlignment=.5
+VerticalAlignment=.5
+WatermarkHorizontalAlignment=.5
+WatermarkVerticalAlignment=.5
+Transition=none
+TransitionDuration=0.0
+BackgroundStartColor=0x36322f
+BackgroundEndColor=0x36322f
+ProgressBarBackgroundColor=0x606060
+ProgressBarForegroundColor=0xffffff
+DialogClearsFirmwareBackground=true
+MessageBelowAnimation=true
+MessageBelowAnimationDistance=10
+CursorAnimation=breath
+CursorAnimationSpeed=7
+
+[boot-up]
+UseEndAnimation=false
+
+[shutdown]
+UseEndAnimation=false
+UseFirmwareBackground=false
+
+[reboot]
+UseEndAnimation=false
+UseFirmwareBackground=false
+
+[updates]
+SuppressMessages=true
+ProgressBarShowPercentComplete=true
+UseProgressBar=true
+Title=Installing Updates...
+SubTitle=Do not turn off your computer
+
+[system-upgrade]
+SuppressMessages=false
+ProgressBarShowPercentComplete=false
+UseProgressBar=true
+
+[firmware-upgrade]
+SuppressMessages=true
+ProgressBarShowPercentComplete=true
+UseProgressBar=true
+Title=Upgrading Firmware...
+SubTitle=Do not turn off your computer

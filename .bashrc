@@ -10,7 +10,7 @@ shopt -s checkwinsize
 
 export HISTSIZE=20000
 export HISTFILESIZE=20000
-export PROMPT_COMMAND='history -a; history -r'
+export PROMPT_COMMAND='history -a'
 export HISTCONTROL=ignoreboth
 
 . /usr/share/bash-completion/bash_completion
@@ -94,7 +94,6 @@ alias pkDel='yay -Rs'
 alias pkClean='yay -Scc'
 alias pkUpdate='yay -Syu'
 alias untar='tar -xzf'
-alias g="git"
 
 # System Util
 alias grubRedoConfig='sudo grub-mkconfig -o /boot/grub/grub.cfg'

@@ -440,4 +440,8 @@ cp dotfiles/display_detector.sh ~/.config/
 Honestly, I just add everything and hope that it covers everything
 ```sh
 yay -S ttf-jetbrains-mono ttf-caladea ttf-carlito ttf-opensans noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-emoji ttf-liberation ttf-dejavu ttf-roboto ttf-inconsolata ttf-font-awesome ttf-ubuntu-font-family ttf-d2coding ttf-muli nerd-fonts-source-code-pro ttf-unifont siji-ttf termsyn-font
+
+sudo mkdir -p /usr/local/share/fonts/
+sudo cp dotfiles/fonts/* /usr/local/share/fonts/
+fc-cache
 ```

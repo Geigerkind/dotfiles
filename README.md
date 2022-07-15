@@ -416,7 +416,8 @@ sudo chmod u+s /usr/bin/brightnessctl
 cp -r dotfiles/config/sway ~/.config/
 cp -r dotfiles/config/system ~/.config/
 cp -r dotfiles/config/waybar ~/.config/
-sudo cp dotfiles/config/sway.desktop /usr/share/wayland-sessions/
+sudo cp dotfiles/sway.desktop /usr/share/wayland-sessions/
+sudo cp dotfiles/sway_integrated.desktop /usr/share/wayland-sessions/
 cp -r dotfiles/config/mako ~/.config/
 ```
 

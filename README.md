@@ -328,6 +328,12 @@ sudo systemctl enable clamav-freshclam.service
 sudo systemctl start clamav-freshclam.service
 ```
 
+#### Printer
+```sh
+yay -S cups cups-pdf usbutils
+sudo systemctl enable cups.socket
+```
+
 #### Applications
 ```sh
 # Daily utensils

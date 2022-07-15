@@ -23,7 +23,7 @@ scrolling:
   multiplier: 2
 
 shell:
-  program: /bin/fish
+  program: /bin/bash
 
 # Font configuration
 font:

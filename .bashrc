@@ -100,4 +100,4 @@ alias htop="btop"
 alias grubRedoConfig='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mkinitRedo='sudo mkinitcpio -p linux'
 
-eval "$(starship init fish)"
+eval "$(starship init bash)"

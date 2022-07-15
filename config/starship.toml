@@ -1,0 +1,8 @@
+[cmd_duration]
+min_time = 10_000
+
+[sudo]
+disabled = false
+
+[time]
+disabled = false

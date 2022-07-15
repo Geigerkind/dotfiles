@@ -368,7 +368,7 @@ git clone https://Geigerkind/dotfiles
 
 # Those packages we need in general
 yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects qt5-svg vulkan-icd-loader vulkan-validation-layers qt5-virtualkeyboard
-yay -S ulauncher translate-shell python-pip
+yay -S ulauncher translate-shell python-pip fish starship
 
 pip install requests --user
 
@@ -390,7 +390,9 @@ mkdir Repos
 mkdir Work
 mkdir Screenshots
 
+cp -r dotfiles/config/fish ~/.config/
 cp dotfiles/.bashrc ~/
+cp dotfiles/config/starship.toml ~/.config/
 
 # Fancy decryption
 yay -S plymouth-git

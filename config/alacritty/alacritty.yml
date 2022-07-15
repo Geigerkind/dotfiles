@@ -22,6 +22,9 @@ scrolling:
   history: 10000
   multiplier: 2
 
+shell:
+  program: /bin/fish
+
 # Font configuration
 font:
   normal:

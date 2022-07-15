@@ -425,6 +425,9 @@ cp -r dotfiles/config/mako ~/.config/
 ```sh
 yay -S i3-gaps polybar feh picom dunst network-manager-applet flameshot i3lock i3lockmore-git copyq xss-lock xclip
 
+# Polybar dependencies
+yay -S zscroll-git
+
 cp -r dotfiles/config/i3 ~/.config/
 cp -r dotfiles/config/polybar ~/.config/
 cp -r dotfiles/config/dunst ~/.config/

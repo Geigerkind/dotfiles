@@ -100,14 +100,17 @@ try:
     metadata = spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'Metadata')
     status = spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'PlaybackStatus')
 
+    timeTotal = int(round(metadata['mpris:length'] / 1000000, 0))
+    timeElapsed = int(round(spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'Position') / 1000000, 0))
+
     # Handle play/pause label
 
     play_pause = play_pause.split(',')
 
     if status == 'Playing':
-        play_pause = play_pause[0]
+        play_pause = 'Playing'
     elif status == 'Paused':
-        play_pause = play_pause[1]
+        play_pause = 'Paused'
     else:
         play_pause = str()
 
@@ -115,10 +118,30 @@ try:
         play_pause = label_with_font.format(font=play_pause_font, label=play_pause)
 
     # Handle main label
-
     artist = fix_string(metadata['xesam:artist'][0]) if metadata['xesam:artist'] else ''
     song = fix_string(metadata['xesam:title']) if metadata['xesam:title'] else ''
     album = fix_string(metadata['xesam:album']) if metadata['xesam:album'] else ''
+
+    def formatTime(input):
+        minutes = int(input / 60)
+        seconds = input % 60
+
+        result = ""
+        if minutes >= 10:
+            result = str(minutes)
+        else:
+            result = "0" + str(minutes)
+
+        result = result + ":"
+
+        if seconds >= 10:
+            result = result + str(seconds)
+        else:
+            result = result + "0" + str(seconds)
+        return result
+
+    timeElapsedFormat = formatTime(timeElapsed)
+    timeTotalFormat = formatTime(timeTotal)
 
     if (quiet and status == 'Paused') or (not artist and not song and not album):
         print('')
@@ -129,10 +152,12 @@ try:
             album = label_with_font.format(font=font, label=album)
 
         # Add 4 to trunclen to account for status symbol, spaces, and other padding characters
-        print(truncate(output.format(artist=artist, 
-                                     song=song, 
-                                     play_pause=play_pause, 
-                                     album=album), trunclen + 4))
+        print(truncate(output.format(artist=artist,
+                                     song=song,
+                                     play_pause=play_pause,
+                                     album=album,
+                                     timeElapsed=timeElapsedFormat,
+                                     timeTotal=timeTotalFormat), trunclen + 6))
 
 except Exception as e:
     if isinstance(e, dbus.exceptions.DBusException):

@@ -1,72 +1,108 @@
+local opt = vim.opt
+local g = vim.g
+local config = require("core.utils").load_config()
 
---[[------------------------------------]]--
---       options - general settings       --
---             Author: elai               --
---            License: GPLv3              --
---[[------------------------------------]]--
+g.nvchad_theme = config.ui.theme
+g.toggle_theme_icon = "   "
+g.transparency = config.ui.transparency
+g.theme_switcher_loaded = false
 
-----------------------
--- General settings --
-----------------------
-local set = vim.opt
-set.swapfile = false                         -- Don't use swapfile
-set.updatetime = 0                           -- Faster completion
-set.encoding="utf-8"                         -- The encoding displayed
-set.fileencoding="utf-8"                     -- The encoding written to file
-set.smartindent = true                       -- Makes indenting smart
-set.iskeyword:append("-")                    -- Treat dash separated words as a word text object"
-set.clipboard = "unnamedplus"                -- Copy paste between vim and everything else
-set.smarttab = true                          -- Makes tabbing smarter will realize you have 2 vs 4
-set.expandtab = true                         -- Converts tabs to spaces
-set.autoindent = true                        -- Good auto indent
-set.autochdir = true                         -- Your working directory will always be the same as your working directory
-set.incsearch = true                         -- Sets incremental search
-set.mouse = 'a'                              -- Enable mouse support
-set.shell = "/bin/zsh"                       -- Set your shell to bash or zsh
-set.shortmess:append "sI"                    -- Disable nvim intro
-vim.cmd [[set nobackup]]                     -- Creates a backup file
-vim.cmd [[set nowritebackup]]                -- Creates a backup file i guess
-vim.cmd [[set formatoptions-=cro]]           -- Stop newline continution of comments
-vim.cmd [[set complete+=kspell]]             -- Auto complete with spellcheck
-vim.cmd [[set completeopt=menuone,longest]]  -- Auto complete menu (It's pretty great)
-vim.cmd [[set nocompatible]]                 -- Disable compatibility to old-time vi
+-- use filetype.lua instead of filetype.vim
+g.did_load_filetypes = 0
+g.do_filetype_lua = 1
 
----------------
--- Neovim UI --
----------------
-set.pumheight = 15                           -- Makes popup menu smaller
-set.ruler = true              	             -- Show the cursor position all the time
-set.splitbelow = true                        -- Horizontal splits will automatically be below
-set.splitright = true                        -- Vertical splits will automatically be to the right
-set.conceallevel = 0                         -- So that I can see `` in markdown files
-set.tabstop = 2                              -- Insert 2 spaces for a tab
-set.number = true                            -- Line numbers
-set.background = "dark"                      -- Tell vim what the background color looks like
-set.virtualedit = "onemore"                  -- With This option you can move the cursor one character over the end
-set.ignorecase = true                        -- Ignores case when searching
-set.smartcase = true                         -- Turns on case sensitive search when letters are capitalized
-set.termguicolors = true                     -- Set term gui colors (most terminals support this)
-set.laststatus=3                             -- Always display the status line
-set.title = true                             -- Show current txt that you editing
-set.relativenumber = false                   -- Vim’s absolute, relative and hybrid line numbers
-set.cursorline = true                        -- Enable highlighting of the current line
-set.shiftwidth = 2                           -- Change the number of space characters inserted for indentation
-set.showtabline = 1                          -- Always show tabs
-set.cmdheight = 1                            -- More space for displaying messages
-set.numberwidth = 5                          -- Set number column width to 2 {default 4}
-set.foldenable = false                       -- Disable folding text
-vim.cmd [[setlocal conceallevel=2]]          -- Syntax conceal for markdown
-vim.cmd [[set noshowmode]]                   -- We don't need to see things like -- INSERT -- anymore
-vim.cmd [[syntax enable]]                    -- Enables syntax highlighing
-vim.cmd [[set t_Co=256]]                     -- Support 256 colors
--- vim.cmd "set whichwrap+=<,>,[,],h,l"         -- Breaks Space-Time Continuum
--- vim.cmd [[set nowrap]]                       -- Display long lines as just one line
+opt.laststatus = 3 -- global statusline
+opt.showmode = false
 
------------------
--- Memory, CPU --
------------------
-set.hidden = true                            -- Required to keep multiple buffers open multiple buffers
-set.timeoutlen = 500                         -- By default timeoutlen is 1000 ms
-set.lazyredraw = true                        -- Disable lazyredraw
-set.synmaxcol = 240                          -- Max column for syntax highlight
-set.updatetime = 700                         -- ms to wait for trigger an event
+opt.title = true
+opt.clipboard = "unnamedplus"
+opt.cul = true -- cursor line
+
+-- Indenting
+opt.expandtab = true
+opt.shiftwidth = 3
+opt.smartindent = true
+
+opt.fillchars = { eob = " " }
+opt.ignorecase = true
+opt.smartcase = true
+opt.mouse = "a"
+
+-- Numbers
+opt.number = true
+opt.numberwidth = 2
+opt.ruler = false
+
+-- disable nvim intro
+opt.shortmess:append "sI"
+
+opt.signcolumn = "yes"
+opt.splitbelow = true
+opt.splitright = true
+opt.tabstop = 8
+opt.termguicolors = true
+opt.timeoutlen = 400
+opt.undofile = true
+
+-- interval for writing swap file to disk, also used by gitsigns
+opt.updatetime = 250
+
+-- go to previous/next line with h,l,left arrow and right arrow
+-- when cursor reaches end/beginning of line
+opt.whichwrap:append "<>[]hl"
+
+g.mapleader = " "
+
+-- disable some builtin vim plugins
+local default_plugins = {
+   "2html_plugin",
+   "getscript",
+   "getscriptPlugin",
+   "gzip",
+   "logipat",
+   "netrw",
+   "netrwPlugin",
+   "netrwSettings",
+   "netrwFileHandlers",
+   "matchit",
+   "tar",
+   "tarPlugin",
+   "rrhelper",
+   "spellfile_plugin",
+   "vimball",
+   "vimballPlugin",
+   "zip",
+   "zipPlugin",
+   "tutor",
+   "rplugin",
+   "syntax",
+   "synmenu",
+   "optwin",
+   "compiler",
+   "bugreport",
+   "ftplugin",
+}
+
+for _, plugin in pairs(default_plugins) do
+   g["loaded_" .. plugin] = 1
+end
+
+local default_providers = {
+   "node",
+   "perl",
+   "python3",
+   "ruby",
+}
+
+for _, provider in ipairs(default_providers) do
+   vim.g["loaded_" .. provider .. "_provider"] = 0
+end
+
+-- set shada path
+vim.schedule(function()
+   vim.opt.shadafile = vim.fn.expand "$HOME" .. "/.local/share/nvim/shada/main.shada"
+   vim.cmd [[ silent! rsh ]]
+end)
+
+-- load user options
+config.options.user()

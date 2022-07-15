@@ -347,7 +347,8 @@ cp -r dotfiles/config/btop ~/.config/
 yay -S intellij-idea-ultimate-edition rustup neovim nvim-packer-git
 
 # Work
-yay -S teams zoom keepassxc virtualbox terraform chromium
+yay -S teams zoom keepassxc virtualbox terraform tfenv chromium
+sudo usermod -ag tfenv ${USER}
 
 # TODO: OpenVPN
 

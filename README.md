@@ -348,8 +348,6 @@ yay -S intellij-idea-ultimate-edition rustup neovim nvim-packer-git
 yay -S teams zoom keepassxc virtualbox terraform tfenv chromium
 sudo usermod -ag tfenv ${USER}
 
-# TODO: OpenVPN
-
 # Neovim
 cp -r dotfiles/nvim ~/.config/
 sudo mkdir /home/root/.config

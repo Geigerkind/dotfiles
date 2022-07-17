@@ -96,6 +96,12 @@ alias pkUpdate='yay -Syu'
 alias untar='tar -xzf'
 alias htop="btop"
 
+# Git
+alias g="git"
+alias gMail="gMailOtto"
+alias gMailOtto='git config user.email "tom.dymel@otto.de"'
+alias gMailWPS='git config user.email "tom.dymel@wps.de"'
+
 # System Util
 alias grubRedoConfig='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mkinitRedo='sudo mkinitcpio -p linux'

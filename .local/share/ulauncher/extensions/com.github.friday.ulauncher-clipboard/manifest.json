@@ -1,0 +1,44 @@
+{
+  "manifest_version": "2",
+  "required_api_version": "2",
+  "name": "Clipboard",
+  "description": "Ulauncher clipboard management using GPaste, Clipster, Clipman or CopyQ",
+  "developer_name": "Albin Larsson",
+  "icon": "edit-paste.png",
+  "preferences": [
+    {
+      "id": "manager",
+      "type": "select",
+      "name": "Clipboard Manager",
+      "description": "Auto will detect which one (if any) you are currently using. If you have none installed it will download and use Clipster",
+      "default_value": "Auto",
+      "options": [
+        "Auto",
+        "Clipster",
+        "CopyQ",
+        "GPaste",
+        "Clipman"
+      ]
+    },
+    {
+      "id": "copy",
+      "type": "keyword",
+      "name": "Copy",
+      "description": "Copy from clipboard history",
+      "default_value": "c"
+    },
+    {
+      "id": "max_lines",
+      "type": "input",
+      "name": "Max lines",
+      "description": "Maximum number of lines to show",
+      "default_value": "20"
+    },
+    {
+      "id": "copy_hook",
+      "type": "text",
+      "name": "Copy hook (optional)",
+      "description": "Additional command to run when selecting a clipboard entry"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "required_api_version": "^2.0.0",
+  "name": "Spotify player",
+  "description": "Control your Spotify desktop app from Ulauncher",
+  "developer_name": "Wiktor Matuszewski",
+  "icon": "images/icon.png",
+  "options": {
+    "query_debounce": 0.1
+  },
+  "preferences": [
+    {
+      "id": "spotify_player",
+      "type": "keyword",
+      "name": "Spotify player",
+      "description": "Control Spotify from Ulauncher",
+      "default_value": "sp"
+    },
+    {
+      "id": "keep_open",
+      "type": "select",
+      "name": "Keep app open",
+      "description": "Keep Ulauncher open after choosing an option (close with ESC)",
+      "default_value": "true",
+      "options": [
+        {"value": "false", "text": "No"},
+        {"value": "true", "text": "Yes"}
+      ]
+    },
+    {
+      "id": "custom_format",
+      "type": "text",
+      "name": "Current track formatting template",
+      "description": "More info on the extension GitHub site: https://github.com/pywkm/ulauncher-spotify",
+      "default_value": "{artist} - {title}{newline}Album: {album}     ({playback_status})"
+    }
+  ]
+}

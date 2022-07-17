@@ -1,0 +1,172 @@
+2022-07-17 14:51:27,787 | INFO | ulauncher: main() | Ulauncher version 5.14.5
+2022-07-17 14:51:27,787 | INFO | ulauncher: main() | Extension API version 2.0.0
+2022-07-17 14:51:27,787 | INFO | ulauncher: main() | GTK+ 3.24.34
+2022-07-17 14:51:27,787 | INFO | ulauncher: main() | Is Wayland: False
+2022-07-17 14:51:27,787 | INFO | ulauncher: main() | Wayland compatibility: off
+2022-07-17 14:51:27,801 | DEBUG | ulauncher.ui.windows.Builder: __init__() | consider using a pythonic name instead of design name 'input-box'
+2022-07-17 14:51:27,805 | DEBUG | ulauncher.ui.windows.Builder: do_connect() | connect builder by name 'ulauncher_window','destroy', 'on_destroy'
+2022-07-17 14:51:27,805 | DEBUG | ulauncher.ui.windows.Builder: do_connect() | connect builder by name 'ulauncher_window','focus_in_event', 'on_focus_in_event'
+2022-07-17 14:51:27,805 | DEBUG | ulauncher.ui.windows.Builder: do_connect() | connect builder by name 'ulauncher_window','focus_out_event', 'on_focus_out_event'
+2022-07-17 14:51:27,806 | DEBUG | ulauncher.ui.windows.Builder: do_connect() | connect builder by name 'input','key_press_event', 'on_input_key_press_event'
+2022-07-17 14:51:27,807 | DEBUG | ulauncher.ui.windows.Builder: log_unconnected_functions() | Not connected to builder 'on_input_changed'
+2022-07-17 14:51:27,807 | DEBUG | ulauncher.ui.windows.Builder: log_unconnected_functions() | Not connected to builder 'on_mnu_about_activate'
+2022-07-17 14:51:27,807 | DEBUG | ulauncher.ui.windows.Builder: log_unconnected_functions() | Not connected to builder 'on_mnu_close_activate'
+2022-07-17 14:51:27,807 | DEBUG | ulauncher.ui.windows.Builder: log_unconnected_functions() | Not connected to builder 'on_mnu_preferences_activate'
+2022-07-17 14:51:27,807 | DEBUG | ulauncher.ui.windows.Builder: log_unconnected_functions() | Not connected to builder 'on_preferences_dialog_destroyed'
+2022-07-17 14:51:27,808 | DEBUG | ulauncher.utils.display: get_screens() | Found 3 monitor(s)
+2022-07-17 14:51:27,808 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 0 - X: 1920, Y: 0, W: 2560, H: 1440
+2022-07-17 14:51:27,808 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 1 - X: 4480, Y: 0, W: 2560, H: 1440
+2022-07-17 14:51:27,809 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 2 - X: 0, Y: 0, W: 1920, H: 1080
+2022-07-17 14:51:27,833 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 14:51:27,835 | INFO | ulauncher.api.server.ExtensionServer: _start_thread() | Starting WS server on port 5054
+2022-07-17 14:51:27,836 | INFO | ulauncher.search.apps.app_watcher: start() | Started scanning desktop dirs
+2022-07-17 14:51:27,848 | INFO | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.nastuzzisamy.ulauncher-translate" started. PID 1498
+2022-07-17 14:51:27,849 | INFO | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.pywkm.ulauncher-spotify" started. PID 1500
+2022-07-17 14:51:27,850 | INFO | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.fajtak.ulauncher-weather" started. PID 1502
+2022-07-17 14:51:27,851 | INFO | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.ulauncher.ulauncher-kill" started. PID 1504
+2022-07-17 14:51:27,852 | INFO | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.noam09.ulauncher-units" started. PID 1506
+2022-07-17 14:51:27,853 | INFO | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.ulauncher.ulauncher-emoji" started. PID 1508
+2022-07-17 14:51:27,854 | INFO | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.melianmiko.ulauncher-nmcli" started. PID 1510
+2022-07-17 14:51:27,855 | INFO | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.iboyperson.ulauncher-system" started. PID 1512
+2022-07-17 14:51:27,856 | INFO | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.friday.ulauncher-clipboard" started. PID 1514
+2022-07-17 14:51:27,857 | INFO | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.ikorjefocur.ulauncher-commandrunner" started. PID 1516
+2022-07-17 14:51:27,862 | INFO | ulauncher.ui.windows.UlauncherWindow: bind_show_app_hotkey() | Trying to bind app hotkey: <Primary>space
+2022-07-17 14:51:27,865 | INFO | ulauncher.utils.desktop.reader: find_apps_cached() | Found 51 apps in cache
+2022-07-17 14:51:27,878 | INFO | ulauncher.utils.desktop.reader: find_apps_cached() | Found 51 apps in the system
+2022-07-17 14:51:27,878 | INFO | ulauncher.search.apps.app_watcher: start() | Scanned desktop dirs in 0.04 seconds
+2022-07-17 14:51:27,885 | DEBUG | ulauncher.search.apps.app_watcher: start() | Start watching desktop files...
+2022-07-17 14:51:27,896 | ERROR | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.ulauncher.ulauncher-kill" exited instantly with code 1
+2022-07-17 14:51:27,896 | ERROR | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.ulauncher.ulauncher-kill" failed with an error: ValueError: Namespace Notify not available for version 0.7
+
+2022-07-17 14:51:27,906 | ERROR | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.friday.ulauncher-clipboard" exited instantly with code 1
+2022-07-17 14:51:27,906 | ERROR | ulauncher.api.server.ExtensionRunner: _run_process() | Extension "com.github.friday.ulauncher-clipboard" failed with an error: ValueError: Namespace Notify not available for version 0.7
+
+2022-07-17 14:51:28,029 | INFO | ulauncher.api.server.ExtensionController: handleConnected() | Extension "com.github.nastuzzisamy.ulauncher-translate" connected
+2022-07-17 14:51:28,029 | DEBUG | ulauncher.api.server.ExtensionController: _send_event() | Send event PreferencesEvent to "com.github.nastuzzisamy.ulauncher-translate"
+2022-07-17 14:51:28,040 | INFO | ulauncher.api.server.ExtensionController: handleConnected() | Extension "com.github.melianmiko.ulauncher-nmcli" connected
+2022-07-17 14:51:28,040 | DEBUG | ulauncher.api.server.ExtensionController: _send_event() | Send event PreferencesEvent to "com.github.melianmiko.ulauncher-nmcli"
+2022-07-17 14:51:28,045 | INFO | ulauncher.api.server.ExtensionController: handleConnected() | Extension "com.github.ulauncher.ulauncher-emoji" connected
+2022-07-17 14:51:28,045 | DEBUG | ulauncher.api.server.ExtensionController: _send_event() | Send event PreferencesEvent to "com.github.ulauncher.ulauncher-emoji"
+2022-07-17 14:51:28,071 | INFO | ulauncher.api.server.ExtensionController: handleConnected() | Extension "com.github.pywkm.ulauncher-spotify" connected
+2022-07-17 14:51:28,072 | DEBUG | ulauncher.api.server.ExtensionController: _send_event() | Send event PreferencesEvent to "com.github.pywkm.ulauncher-spotify"
+2022-07-17 14:51:28,103 | INFO | ulauncher.api.server.ExtensionController: handleConnected() | Extension "com.github.ikorjefocur.ulauncher-commandrunner" connected
+2022-07-17 14:51:28,103 | DEBUG | ulauncher.api.server.ExtensionController: _send_event() | Send event PreferencesEvent to "com.github.ikorjefocur.ulauncher-commandrunner"
+2022-07-17 14:51:28,115 | INFO | ulauncher.api.server.ExtensionController: handleConnected() | Extension "com.github.iboyperson.ulauncher-system" connected
+2022-07-17 14:51:28,116 | DEBUG | ulauncher.api.server.ExtensionController: _send_event() | Send event PreferencesEvent to "com.github.iboyperson.ulauncher-system"
+2022-07-17 14:51:28,126 | INFO | ulauncher.api.server.ExtensionController: handleConnected() | Extension "com.github.fajtak.ulauncher-weather" connected
+2022-07-17 14:51:28,126 | DEBUG | ulauncher.api.server.ExtensionController: _send_event() | Send event PreferencesEvent to "com.github.fajtak.ulauncher-weather"
+2022-07-17 14:51:28,222 | INFO | ulauncher.api.server.ExtensionController: handleConnected() | Extension "com.github.noam09.ulauncher-units" connected
+2022-07-17 14:51:28,222 | DEBUG | ulauncher.api.server.ExtensionController: _send_event() | Send event PreferencesEvent to "com.github.noam09.ulauncher-units"
+2022-07-17 14:52:06,775 | DEBUG | ulauncher.utils.display: get_screens() | Found 3 monitor(s)
+2022-07-17 14:52:06,775 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 0 - X: 1920, Y: 0, W: 2560, H: 1440
+2022-07-17 14:52:06,775 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 1 - X: 4480, Y: 0, W: 2560, H: 1440
+2022-07-17 14:52:06,775 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 2 - X: 0, Y: 0, W: 1920, H: 1080
+2022-07-17 14:52:06,775 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 14:52:07,510 | INFO | ulauncher.utils.image_loader: get_app_icon_pixbuf() | Could not load icon for picom. E: gtk-icon-theme-error-quark: Icon 'picom' not present in theme Adwaita (0)
+2022-07-17 14:52:07,513 | INFO | ulauncher.utils.image_loader: get_app_icon_pixbuf() | Could not load icon for network-wired. E: gtk-icon-theme-error-quark: Icon 'network-wired' not present in theme Adwaita (0)
+2022-07-17 14:52:07,514 | INFO | ulauncher.utils.image_loader: get_app_icon_pixbuf() | Could not load icon for java18-openjdk. E: gtk-icon-theme-error-quark: Icon 'java18-openjdk' not present in theme Adwaita (0)
+2022-07-17 14:52:07,514 | INFO | ulauncher.utils.image_loader: get_app_icon_pixbuf() | Could not load icon for java18-openjdk. E: gtk-icon-theme-error-quark: Icon 'java18-openjdk' not present in theme Adwaita (0)
+2022-07-17 14:52:07,515 | INFO | ulauncher.utils.image_loader: get_app_icon_pixbuf() | Could not load icon for preferences-system-network. E: gtk-icon-theme-error-quark: Icon 'preferences-system-network' not present in theme Adwaita (0)
+2022-07-17 14:52:07,516 | INFO | ulauncher.utils.image_loader: get_app_icon_pixbuf() | Could not load icon for hwloc. E: gtk-icon-theme-error-quark: Icon 'hwloc' not present in theme Adwaita (0)
+2022-07-17 14:52:07,516 | INFO | ulauncher.utils.image_loader: get_app_icon_pixbuf() | Could not load icon for network-wired. E: gtk-icon-theme-error-quark: Icon 'network-wired' not present in theme Adwaita (0)
+2022-07-17 14:52:07,521 | INFO | ulauncher.utils.image_loader: get_app_icon_pixbuf() | Could not load icon for network-wired. E: gtk-icon-theme-error-quark: Icon 'network-wired' not present in theme Adwaita (0)
+2022-07-17 14:52:07,553 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 14:52:07,587 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 3 results
+2022-07-17 14:52:07,768 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 3 results
+2022-07-17 14:52:07,927 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 1 results
+2022-07-17 14:52:08,119 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 1 results
+2022-07-17 14:52:08,559 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 1 results
+2022-07-17 14:52:08,755 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 3 results
+2022-07-17 14:52:08,920 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 3 results
+2022-07-17 14:52:09,122 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 14:52:09,302 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 4 results
+2022-07-17 14:52:09,647 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 2 results
+2022-07-17 14:52:10,734 | INFO | ulauncher.api.shared.action.LaunchAppAction: run() | Run application GlobalProtect VPN (/usr/share/applications/com.yuezk.qt.gpclient.desktop) Exec ['env', 'QT_AUTO_SCREEN_SCALE_FACTOR=1', '/usr/bin/gpclient']
+2022-07-17 14:52:10,742 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 14:52:22,821 | DEBUG | ulauncher.utils.display: get_screens() | Found 3 monitor(s)
+2022-07-17 14:52:22,822 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 0 - X: 1920, Y: 0, W: 2560, H: 1440
+2022-07-17 14:52:22,822 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 1 - X: 4480, Y: 0, W: 2560, H: 1440
+2022-07-17 14:52:22,822 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 2 - X: 0, Y: 0, W: 1920, H: 1080
+2022-07-17 14:52:22,824 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 14:52:23,615 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 9 results
+2022-07-17 14:52:23,733 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 3 results
+2022-07-17 14:52:23,844 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 3 results
+2022-07-17 14:52:23,887 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 2 results
+2022-07-17 14:52:24,015 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 2 results
+2022-07-17 14:52:24,169 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 2 results
+2022-07-17 14:52:24,566 | INFO | ulauncher.api.shared.action.LaunchAppAction: run() | Run application IntelliJ IDEA Ultimate Edition (/usr/share/applications/jetbrains-idea.desktop) Exec ['intellij-idea-ultimate-edition']
+2022-07-17 14:52:24,574 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 14:53:10,918 | DEBUG | ulauncher.utils.display: get_screens() | Found 3 monitor(s)
+2022-07-17 14:53:10,918 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 0 - X: 1920, Y: 0, W: 2560, H: 1440
+2022-07-17 14:53:10,918 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 1 - X: 4480, Y: 0, W: 2560, H: 1440
+2022-07-17 14:53:10,918 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 2 - X: 0, Y: 0, W: 1920, H: 1080
+2022-07-17 14:53:10,920 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 14:53:11,269 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 4 results
+2022-07-17 14:53:11,478 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 14:53:11,569 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 14:53:11,609 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 14:53:11,786 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 2 results
+2022-07-17 14:53:12,020 | INFO | ulauncher.api.shared.action.LaunchAppAction: run() | Run application Firefox (/usr/share/applications/firefox.desktop) Exec ['/usr/lib/firefox/firefox']
+2022-07-17 14:53:12,034 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 14:55:40,591 | DEBUG | ulauncher.utils.display: get_screens() | Found 3 monitor(s)
+2022-07-17 14:55:40,591 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 0 - X: 1920, Y: 0, W: 2560, H: 1440
+2022-07-17 14:55:40,591 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 1 - X: 4480, Y: 0, W: 2560, H: 1440
+2022-07-17 14:55:40,591 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 2 - X: 0, Y: 0, W: 1920, H: 1080
+2022-07-17 14:55:40,592 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 14:55:40,836 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 9 results
+2022-07-17 14:55:40,953 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 3 results
+2022-07-17 14:55:40,991 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 3 results
+2022-07-17 14:55:41,089 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 2 results
+2022-07-17 14:55:41,304 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 2 results
+2022-07-17 14:55:42,180 | INFO | ulauncher.api.shared.action.LaunchAppAction: run() | Run application IntelliJ IDEA Ultimate Edition (/usr/share/applications/jetbrains-idea.desktop) Exec ['intellij-idea-ultimate-edition']
+2022-07-17 14:55:42,185 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 15:09:37,863 | DEBUG | ulauncher.utils.display: get_screens() | Found 3 monitor(s)
+2022-07-17 15:09:37,863 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 0 - X: 1920, Y: 0, W: 2560, H: 1440
+2022-07-17 15:09:37,863 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 1 - X: 4480, Y: 0, W: 2560, H: 1440
+2022-07-17 15:09:37,863 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 2 - X: 0, Y: 0, W: 1920, H: 1080
+2022-07-17 15:09:37,863 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 15:09:38,158 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 4 results
+2022-07-17 15:09:38,304 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:09:38,343 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:09:38,399 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:09:38,535 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 2 results
+2022-07-17 15:09:38,644 | INFO | ulauncher.api.shared.action.LaunchAppAction: run() | Run application Firefox (/usr/share/applications/firefox.desktop) Exec ['/usr/lib/firefox/firefox']
+2022-07-17 15:09:38,659 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 15:11:07,242 | DEBUG | ulauncher.utils.display: get_screens() | Found 3 monitor(s)
+2022-07-17 15:11:07,243 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 0 - X: 1920, Y: 0, W: 2560, H: 1440
+2022-07-17 15:11:07,243 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 1 - X: 4480, Y: 0, W: 2560, H: 1440
+2022-07-17 15:11:07,243 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 2 - X: 0, Y: 0, W: 1920, H: 1080
+2022-07-17 15:11:07,244 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 15:11:07,624 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 4 results
+2022-07-17 15:11:07,869 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:11:07,935 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:11:08,007 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:11:08,149 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 2 results
+2022-07-17 15:11:08,291 | INFO | ulauncher.api.shared.action.LaunchAppAction: run() | Run application Firefox (/usr/share/applications/firefox.desktop) Exec ['/usr/lib/firefox/firefox']
+2022-07-17 15:11:08,299 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 15:12:18,010 | DEBUG | ulauncher.utils.display: get_screens() | Found 3 monitor(s)
+2022-07-17 15:12:18,010 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 0 - X: 1920, Y: 0, W: 2560, H: 1440
+2022-07-17 15:12:18,010 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 1 - X: 4480, Y: 0, W: 2560, H: 1440
+2022-07-17 15:12:18,011 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 2 - X: 0, Y: 0, W: 1920, H: 1080
+2022-07-17 15:12:18,011 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 15:12:18,227 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 4 results
+2022-07-17 15:12:18,294 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:12:18,389 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:12:18,441 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:12:18,591 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 2 results
+2022-07-17 15:12:18,732 | INFO | ulauncher.api.shared.action.LaunchAppAction: run() | Run application Firefox (/usr/share/applications/firefox.desktop) Exec ['/usr/lib/firefox/firefox']
+2022-07-17 15:12:18,746 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 15:14:34,254 | INFO | ulauncher.search.apps.app_watcher: _remove_file() | App was removed (/usr/share/applications/geoclue-where-am-i.desktop)
+2022-07-17 15:14:34,254 | INFO | ulauncher.search.apps.app_watcher: _remove_file() | App was removed (/usr/share/applications/geoclue-demo-agent.desktop)
+2022-07-17 15:14:37,136 | DEBUG | ulauncher.utils.display: get_screens() | Found 3 monitor(s)
+2022-07-17 15:14:37,136 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 0 - X: 1920, Y: 0, W: 2560, H: 1440
+2022-07-17 15:14:37,136 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 1 - X: 4480, Y: 0, W: 2560, H: 1440
+2022-07-17 15:14:37,136 | DEBUG | ulauncher.utils.display: get_screens() |   Monitor 2 - X: 0, Y: 0, W: 1920, H: 1080
+2022-07-17 15:14:37,136 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results
+2022-07-17 15:14:37,382 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 4 results
+2022-07-17 15:14:37,504 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:14:37,583 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:14:37,645 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 5 results
+2022-07-17 15:14:37,773 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 2 results
+2022-07-17 15:14:37,861 | INFO | ulauncher.api.shared.action.LaunchAppAction: run() | Run application Firefox (/usr/share/applications/firefox.desktop) Exec ['/usr/lib/firefox/firefox']
+2022-07-17 15:14:37,876 | DEBUG | ulauncher.ui.windows.UlauncherWindow: show_results() | render 0 results

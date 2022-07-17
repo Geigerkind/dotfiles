@@ -1,0 +1,43 @@
+{
+  "required_api_version": "^2.0.0",
+  "name": "Command runner",
+  "description": "Run commands from $PATH, using terminal or in background",
+  "developer_name": "Ikor Jefocur",
+  "icon": "images/icon.svg",
+  "preferences": [
+    {
+      "id": "keyword",
+      "type": "keyword",
+      "name": "Run",
+      "description": "Run command in background.",
+      "default_value": "r"
+    },
+    {
+      "id": "keyword_terminal",
+      "type": "keyword",
+      "name": "Run in Terminal",
+      "description": "Run command in terminal.",
+      "default_value": "t"
+    },
+    {
+      "id": "shell",
+      "type": "input",
+      "name": "Shell",
+      "description": "Additional wrapper for commands. Symbol \"%\" will be replaced with command as it, duplicated symbol will convert command to single argument. Can be enviroment variable if prefixed with \"$\".",
+      "default_value": "%"
+    },
+    {
+      "id": "terminal",
+      "type": "input",
+      "name": "Terminal command",
+      "description": "Terminal to run commands in. Has same format as shell setting.",
+      "default_value": "x-terminal-emulator -- %"
+    },
+    {
+      "id": "commands",
+      "type": "input",
+      "name": "Command list getter",
+      "description": "Command which will be used to get additional commands, like shell aliases and functions. Should return list separated by line break."
+    }
+  ]
+}

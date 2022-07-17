@@ -1,0 +1,50 @@
+{
+  "required_api_version": "^2.0.0",
+  "name": "Weather",
+  "description": "Shows the current weather in the chosen city (from OpenWeatherMap)",
+  "developer_name": "Fajtak",
+  "icon": "images/icon.png",
+  "options": {
+    "query_debounce": 0.1
+  },
+  "preferences": [
+    {
+      "id": "wth_keyword",
+      "type": "keyword",
+      "name": "OpenWeatherMap",
+      "description": "Show temperature at a given city",
+      "default_value": "w"
+    },
+    {
+      "id": "api_key",
+      "type": "input",
+      "name": "OpenWeatherMap API Key",
+      "description": "Enter your personal API key from OpenWeatherMap.org",
+      "default_value": " "
+    },
+    {
+      "id": "units",
+      "type": "select",
+      "name": "Units",
+      "default_value": "metric",
+      "options": [
+        { "value": "metric", "text": "Metric" },
+        { "value": "imperial", "text": "Imperial" }
+      ]
+    },
+    {
+      "id": "predef_cities",
+      "type": "text",
+      "name": "Predefined cities",
+      "name": "When no city is entered, the weather in the predefined cities is shown",
+      "default_value": "Prague;Thoiry;Pardubice"
+    },
+    {
+      "id": "language",
+      "type": "text",
+      "name": "Language",
+      "name": "Language (https://openweathermap.org/current#multi)",
+      "default_value": "en"
+    }
+  ]
+}

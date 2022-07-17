@@ -1,0 +1,15 @@
+{
+    "required_api_version": "^2.0.0",
+    "name": "Process Killer",
+    "description": "This can kill user processes",
+    "developer_name": "Aleksandr Gornostal",
+    "icon": "images/icon.png",
+    "preferences": [
+        {
+            "id": "pkiller_kw",
+            "type": "keyword",
+            "name": "Process Killer",
+            "default_value": "kill"
+        }
+    ]
+}

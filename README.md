@@ -383,6 +383,10 @@ sudo systemctl enable sddm.conf
 cp -r dotfiles/config/alacritty ~/.config/
 cp -r dotfiles/config/ulauncher ~/.config/
 
+# .local/share
+mkdir -p .local/share
+cp -r dotfiles/config/.local/share/* .local/share/
+
 # Configure Home
 mkdir Repos
 mkdir Work

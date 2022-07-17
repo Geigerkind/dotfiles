@@ -11,6 +11,11 @@
 
 ![i3](preview/i3.png)
 </details>
+<details>
+<summary>Wayland with sway</summary>
+
+![sway](preview/sway.png)
+</details>
 
 ## Installation
 <details>
@@ -444,6 +449,8 @@ cp -r dotfiles/config/waybar ~/.config/
 sudo cp dotfiles/sway.desktop /usr/share/wayland-sessions/
 sudo cp dotfiles/sway_integrated.desktop /usr/share/wayland-sessions/
 cp -r dotfiles/config/mako ~/.config/
+cp dotfiles/swayshot.sh ~/.config/
+
 ```
 
 #### Xorg with i3

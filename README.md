@@ -1,4 +1,4 @@
-# Archlinux Sway/i3 setup on a system76 Oryx Pro 7
+# Archlinux I3 (and sway) setup on a system76 Oryx Pro 7
 ## Features
 * Full disk encryption
 * System76 packages installed

@@ -22,5 +22,7 @@ export MOZ_ENABLE_WAYLAND=1
 export WLR_RENDERER=vulkan
 export SWAYSHOT_SCREENSHOTS="/home/shino/Screenshots"
 export SWAYSHOT_DATEFMT="%F-%H-%M-%S"
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=sway
 
 sway --unsupported-gpu

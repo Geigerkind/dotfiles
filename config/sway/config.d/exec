@@ -9,3 +9,6 @@ exec mako &
 exec udiskie &
 exec wl-paste -t text --watch clipman store &
 exec ulauncher --hide-window &
+exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment WAYLAND_DISPLAY
+

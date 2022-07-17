@@ -412,7 +412,7 @@ sudo cp dotfiles/environment /etc/
 
 ##### Wayland with sway
 ```sh
-yay -S playerctl sway swaylock swayidle waybar swaybg brightnessctl pipewire-media-session mako wl-clipboard clipman swayshot
+yay -S playerctl sway swaylock swayidle waybar swaybg brightnessctl pipewire-media-session mako wl-clipboard clipman swayshot xdg-desktop-portal-wlr
 # You may need to do this so brightnessctl works
 sudo chmod u+s /usr/bin/brightnessctl
 

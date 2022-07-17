@@ -342,7 +342,7 @@ yay -S btop
 cp -r dotfiles/config/btop ~/.config/
 
 # Development
-yay -S intellij-idea-ultimate-edition rustup neovim nvim-packer-git
+yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre rustup neovim nvim-packer-git
 
 # Work
 yay -S teams zoom keepassxc virtualbox terraform tfenv chromium

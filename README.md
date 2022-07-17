@@ -12,6 +12,7 @@
 * Screensharing does not work
 * Electron applications dont work
 * Behaviour rather wonky with Nvidia driver and vulkan wlr renderer
+* Screenshots dont work using NVIDIA driver
 
 ## Preview
 <details>

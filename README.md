@@ -7,7 +7,6 @@
 * SDDM Greeter
 * Notifications 
 * Built-In screen turns off when lid is closed
-* 
 
 ## Wayland: Known bugs
 * Screensharing does not work

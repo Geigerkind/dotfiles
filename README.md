@@ -433,6 +433,12 @@ cp -r dotfiles/config/dunst ~/.config/
 cp -r dotfiles/config/picom ~/.config/
 cp dotfiles/xrandr_displays.sh ~/.config/
 cp dotfiles/display_detector.sh ~/.config/
+
+# ACPI Lid closed
+sudo cp dotfiles/logind.conf /etc/systemd/
+sudo cp dotfiles/laptop-lid /etc/acpi/events/laptop-lid
+sudo cp dotfiles/laptop-lid.sh /etc/acpi/
+# reboot to take effect!
 ```
 
 #### Fonts

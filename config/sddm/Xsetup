@@ -3,7 +3,6 @@
 
 xrandr --setprovideroutputsource intel nvidia
 
-OUTPUT=$(bash /home/shino/.config/xrandr_displays.sh)
-echo "${OUTPUT}" > /home/shino/xsetup_test2
+OUTPUT=$(bash /home/shino/.config/xrandr_displays.sh true)
 
 xrandr ${OUTPUT}

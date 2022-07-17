@@ -2,10 +2,25 @@
 ## Features
 * Full disk encryption
 * System76 packages installed
-* Wayland and xorg setups
-* Configuration for a nice ricing
+* I3 and Sway setups
+* Startup ArchLinux Logo and styled FDE password prompt
+* SDDM Greeter
+* Notifications 
+* Built-In screen turns off when lid is closed
+* 
+
+## Wayland: Known bugs
+* Screensharing does not work
+* Electron applications dont work
+* Behaviour rather wonky with Nvidia driver and vulkan wlr renderer
 
 ## Preview
+<details>
+<summary>SDDM Greeter</summary>
+
+![greeter](preview/greeter.png)
+</details>
+
 <details>
 <summary>Xorg with i3</summary>
 

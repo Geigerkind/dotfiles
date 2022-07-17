@@ -404,6 +404,10 @@ sudo cp -r dotfiles/plymouth/pop-basic /usr/share/plymouth/themes/
 sudp cp dotfiles/plymouth/plymouthd.conf /etc/plymouth/
 sudo cp dotfiles/plymouth/sddm-plymouth.service
 sudo plymouth-set-default-theme pop-basic -R
+
+# GTK THEME
+yay -S pop-theme
+sudo cp dotfiles/environment /etc/
 ```
 
 ##### Wayland with sway

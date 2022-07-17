@@ -8,12 +8,14 @@
 ## Preview
 <details>
 <summary>Xorg with i3</summary>
+
 ![i3](preview/i3.png)
 </details>
 
 ## Installation
 <details>
 <summary>System setup</summary>
+
 ### Create a bootable ArchLinux USB drive
 ```sh
 sudo umount /dev/sdx
@@ -212,6 +214,7 @@ reboot
 
 <details>
 <summary>Configuration</summary>
+
 ### Configuration
 #### Installing more essentials
 ```sh
@@ -342,6 +345,7 @@ sudo systemctl enable cups.socket
 
 <details>
 <summary>Actual rices</summary>
+
 ### Ricing
 #### Applications
 ```sh

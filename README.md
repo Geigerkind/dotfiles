@@ -412,9 +412,12 @@ sudo cp dotfiles/environment /etc/
 
 ##### Wayland with sway
 ```sh
-yay -S playerctl sway swaylock swayidle waybar swaybg brightnessctl pipewire-media-session mako wl-clipboard clipman swayshot xdg-desktop-portal-wlr
+yay -S playerctl sway swaylock swayidle waybar swaybg brightnessctl pipewire-media-session mako wl-clipboard clipman swayshot
 # You may need to do this so brightnessctl works
 sudo chmod u+s /usr/bin/brightnessctl
+
+# xdg-desktop-portal interferes with the xorg setup, so currently it doesnt help with screensharing anyway, but leaving it here in case you want to use the sway setup
+yay -S xdg-desktop-portal-wlr
 
 cp -r dotfiles/config/sway ~/.config/
 cp -r dotfiles/config/system ~/.config/

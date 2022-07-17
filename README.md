@@ -6,10 +6,14 @@
 * Configuration for a nice ricing
 
 ## Preview
-### Xorg with i3
+<details>
+<summary>Xorg with i3</summary>
 ![i3](preview/i3.png)
+</details>
 
 ## Installation
+<details>
+<summary>System setup</summary>
 ### Create a bootable ArchLinux USB drive
 ```sh
 sudo umount /dev/sdx
@@ -204,7 +208,10 @@ grub-mkconfig -o /boot/efi/EFI/arch/grub.cfg
 exit
 reboot
 ```
+</details>
 
+<details>
+<summary>Configuration</summary>
 ### Configuration
 #### Installing more essentials
 ```sh
@@ -331,7 +338,11 @@ sudo systemctl start clamav-freshclam.service
 yay -S cups cups-pdf usbutils
 sudo systemctl enable cups.socket
 ```
+</details>
 
+<details>
+<summary>Actual rices</summary>
+### Ricing
 #### Applications
 ```sh
 # Daily utensils
@@ -461,3 +472,4 @@ sudo mkdir -p /usr/local/share/fonts/
 sudo cp dotfiles/fonts/* /usr/local/share/fonts/
 fc-cache
 ```
+</details>

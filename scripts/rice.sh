@@ -34,7 +34,7 @@ sudo cp -r ./.config/nvim /home/root/.config/
 
 cp -r ./.config ~/
 cp -r ./.local ~/
-cp -r ./.home/* ~/
+cp ./.home/.bashrc ~/
 sudo cp ./environment /etc/
 
 ## Home

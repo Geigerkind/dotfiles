@@ -15,6 +15,9 @@ yay -S i3-gaps polybar feh picom dunst network-manager-applet flameshot i3lock i
 yay -S zscroll-git
 yay -S ttf-jetbrains-mono ttf-caladea ttf-carlito ttf-opensans noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-emoji ttf-liberation ttf-dejavu ttf-roboto ttf-inconsolata ttf-font-awesome ttf-ubuntu-font-family ttf-d2coding ttf-muli nerd-fonts-source-code-pro ttf-unifont siji-ttf termsyn-font
 
+# Graphics appendix
+sudo cp ./graphics/50-gpu.conf /etc/X11/xorg.conf.d/
+
 pip install requests --user
 
 sudo systemctl enable docker

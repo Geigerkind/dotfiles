@@ -235,51 +235,16 @@ reboot
 <details>
 <summary>Configuration</summary>
 
-### Configuration
-#### Installing more essentials
-```sh
-dhcpcd
-sudo pacman -S zip unzip tar unrar wget htop clang cmake git python go openssh npm pacman-contrib pkgconfig autoconf automake man p7zip bzip2 zstd xz gzip
-```
+```bash
+bash ./scripts/config_1.sh
 
-#### Network
-```sh
-sudo systemctl enable --now NetworkManager
-# You may need to use 'nmtui' to configure the network
-sudo systemctl enable --now acpid
-```
-
-#### CPU microcode
-```sh
-sudo pacman -S intel-ucode
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-#### App Armor
-```sh
-sudo pacman -S apparmor
-sudo systemctl enable --now apparmor.service
-
+# Apparmor
 # Edit the grub configuration
 sudo vim /etc/default/grub
 # GRUB_CMDLINE_LINUX=”apparmor=1 lsm=lockdown,yama,apparmor cryptdevice=/dev/nvme1n1p3:luks_root”
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
 
-#### UFW
-```sh
-sudo pacman -S ufw
-sudo systemctl enable --now ufw
-sudo ufw enable
-```
-
-#### YAY: Aur Repos
-```sh
-# Improve makepkg compile time
-sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j12"/g' /etc/makepkg.conf
-
-# Installing yay
-## Im not sure if yay is in the community repo or not, you should check it before proceeding
+# Yay
 cd
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -288,30 +253,8 @@ makepkg
 sudo pacman -U yay-9.4.4-1-x86_64.pkg.tar.xz
 cd ..
 rm -rf yay
-```
 
-#### System76 proprietary drivers
-```sh
-yay -s system76-io-dkms system76-dkms system76-firmware-daemon firmware-manager-git system76-acpi-dkms system76-driver system76-power
-
-# Fixes sha512 error during dkms
-sudo ln -s /usr/bin/sha512sum /usr/bin/sha512
-
-sudo systemctl enable --now system76-firmware-daemon
-sudo systemctl enable --now system76
-sudo systemctl enable --now com.system76.PowerDaemon.service
-```
-
-#### Graphics
-The Oryx Pro 7 comes with an integrated and discrete graphics card. To make use of the dGPU and all displays we need to use PRIME.
-```sh
-sudo yay -S nvidia nvidia-utils nvidia-settings nvidia-prime optimus-manager
-
-# PRIME
-sudo cp dotfiles/optimus-manager.conf /etc/optimus-manager/
-sudo systemctl enable optimus-manager
-
-# mkinitcpio
+bash ./scripts/config_2.sh
 # MODULES=(intel_agp i915)
 sudo vim /etc/mkinitcpio.conf
 sudo mkinitcpio -P
@@ -328,45 +271,14 @@ reboot
 prime-offload
 optimus-manager --switch nvidia
 system76-power graphics nvidia
+
 reboot
-```
-
-#### Audio
-```sh
-pacman -S alsa alsa-firmware pulseaudio pavucontrol
-
-# Create the following file
-echo "options snd_hda_intel probe_mask=1" > /etc/modprobe.d/audio-patch.conf
-
-# Reboot to apply it to the system
-```
-
-#### Java
-```sh
-sudo pacman -S jre-openjdk jdk-openjdk
-sudo archlinux-java set java-17-openjdk
-```
-
-#### Anti-Virus
-Required by all companies, here is one that doesnt annoy much
-```sh
-sudo pacman -S clamav
-freshclam
-sudo systemctl enable clamav-freshclam.service
-sudo systemctl start clamav-freshclam.service
-```
-
-#### Printer
-```sh
-yay -S cups cups-pdf usbutils
-sudo systemctl enable cups.socket
 ```
 </details>
 
 <details>
-<summary>Actual rices</summary>
+<summary>Ricing</summary>
 
-### Ricing
 ```bash
 bash ./scripts/rice.sh
 

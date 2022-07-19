@@ -185,29 +185,9 @@ reboot
 <summary>Configuration</summary>
 
 ```bash
-bash ./scripts/config_1.sh
+bash ./scripts/config.sh nvme0n1p3
 
-# Apparmor
-# Edit the grub configuration
-sudo vim /etc/default/grub
-# GRUB_CMDLINE_LINUX=”apparmor=1 lsm=lockdown,yama,apparmor cryptdevice=/dev/nvme1n1p3:luks_root”
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-
-# Yay
-cd
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg
-## Very likely you have to adjust this version
-sudo pacman -U yay-9.4.4-1-x86_64.pkg.tar.xz
-cd ..
-rm -rf yay
-
-bash ./scripts/config_2.sh
-# MODULES=(intel_agp i915)
-sudo vim /etc/mkinitcpio.conf
-sudo mkinitcpio -P
-
+# TODO: Find out what is actual default to replace it
 # grub config
 # fbcon=map:1 forces luks output on the builtin display during boot when external monitors are connected
 # However this also causes that if none are selected you are blind again to type luks, which is why we need to add another grub entry

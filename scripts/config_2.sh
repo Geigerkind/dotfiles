@@ -17,8 +17,7 @@ sudo systemctl enable optimus-manager
 
 # Audio
 pacman -S alsa alsa-firmware pulseaudio pavucontrol
-# Create the following file
-echo "options snd_hda_intel probe_mask=1" > /etc/modprobe.d/audio-patch.conf
+sudo cp ./audio/audio-patch.conf /etc/modprobe.d/
 
 # Java
 sudo pacman -S jre-openjdk jdk-openjdk

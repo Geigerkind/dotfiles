@@ -1,22 +1,22 @@
-# Archlinux I3 (and sway) setup on a system76 Oryx Pro 7
+# Arch Linux i3 setup on a System76 Oryx Pro 7
 ## Features
 * Full disk encryption
 * System76 packages installed
-* I3 and Sway setups
-* Startup ArchLinux Logo and styled FDE password prompt
-* SDDM Greeter
+* i3 and Sway setups
+* Startup Arch Linux logo and styled FDE password prompt
+* SDDM greeter
 * Notifications 
 * Built-In screen turns off when lid is closed
 
 ## Wayland: Known bugs
 * Screensharing does not work
 * Electron applications dont work
-* Behaviour rather wonky with Nvidia driver and vulkan wlr renderer
+* Behaviour rather wonky with NVIDIA driver and vulkan wlr renderer
 * Screenshots dont work using NVIDIA driver
 
 ## Preview
 <details>
-<summary>SDDM Greeter</summary>
+<summary>SDDM greeter</summary>
 
 ![greeter](preview/greeter.png)
 </details>
@@ -163,7 +163,7 @@ vim /etc/pacman.d/mirrorslist
 ```
 
 ### Installing ArchLinux
-```sh
+```bash
 # Pacstrap
 pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmare networkmanager sudo vi gvim bash-completion nano
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -171,62 +171,11 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # Change root to new system
 arch-chroot /mnt
 
-# Install packages that are used later
-pacman -S netctl dialog dhcpcd pulseaudio alsa linux-headers ntfs-3g
-pacman -S xf86-video-intel xf86-video-nouveau mesa mesa-demos acpi acpid
+pacman -S git
+git clone https://github.com/Geigerkind/dotfiles
+cd dotfiles
+bash ./scripts/install_arch.sh
 
-# Time zone
-ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
-hwclock --systohc
-
-# Localization
-## Uncomment your required locals
-vim /etc/locale.gen
-locale-gen
-echo LANG=en_US.UTF-8 > /etc/locale.conf
-export LANG=en_US.UTF-8
-export KEYMAP=de-latin1
-echo KEYMAP=de-latin1 > /etc/vconsole.conf
-
-# Network
-echo robot > /etc/hostname
-echo "127.0.0.1 localhost" >> /etc/hosts
-echo "::1 localhost" >> /etc/hosts
-echo "127.0.1.1 robot.localdomain robot" >> /etc/hosts
-
-# Sudo
-## Set up root password
-passwd
-
-## Add user
-useradd -m -g wheel shino
-passwd shino
-
-## Uncomment wheel group
-vim /etc/sudoers
-```
-
-### Bootloader
-```sh
-# Edit the grub configuration
-vim /etc/default/grub
-# Add the following below 'GRUB_CMDLINE_LINUX_DEFAULT'
-# GRUB_CMDLINE_LINUX=”cryptdevice=/dev/nvme1n1p3:luks_root”
-
-# Edit Initframs config
-vim /etc/mkinitcpio.conf
-# Your HOOKS should looks similar to this
-# HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)
-mkinitcpio -p linux
-
-# Install bootloader
-grub-install --boot-directory=/boot --efi-directory=/boot/efi /dev/nvme1n1p2
-grub-mkconfig -o /boot/grub/grub.cfg
-grub-mkconfig -o /boot/efi/EFI/arch/grub.cfg
-```
-
-### Exit and reboot
-```sh
 exit
 reboot
 ```

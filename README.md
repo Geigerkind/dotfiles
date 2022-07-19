@@ -367,135 +367,15 @@ sudo systemctl enable cups.socket
 <summary>Actual rices</summary>
 
 ### Ricing
-#### Applications
-```sh
-# Daily utensils
-yay -S firefox alacritty exa nautilus discord signal-desktop neofetch spotify libreoffice
+```bash
+bash ./scripts/rice.sh
 
-# Misc
-yay -S btop
-cp -r dotfiles/config/btop ~/.config/
+nvim +PackerInstall
 
-# Development
-yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre rustup neovim nvim-packer-git
-
-# Work
-yay -S teams zoom keepassxc virtualbox terraform tfenv chromium
-sudo usermod -ag tfenv ${USER}
-
-# Neovim
-cp -r dotfiles/nvim ~/.config/
-sudo mkdir /home/root/.config
-sudo cp -r dotfiles/nvim /home/root/.config/
-## Open a file and type :PackerInstall
-
-# Docker
-yay -S docker docker-compose
-sudo systemctl enable docker
-```
-
-#### Window Manager
-```sh
-# Get dotfiles
-git clone https://Geigerkind/dotfiles
-
-# Those packages we need in general
-yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects qt5-svg vulkan-icd-loader vulkan-validation-layers qt5-virtualkeyboard
-yay -S ulauncher translate-shell python-pip starship
-
-pip install requests --user
-
-# Xorg config
-sudo cp dotfiles/50-gpu.conf /etc/X11/xorg.conf.d/
-
-# Configure sddm
-sudo cp -r dotfiles/config/sddm/sugar-candy /usr/share/sddm/themes/
-sudo cp dotfiles/config/sddm/Xsetup /usr/share/sddm/scripts/Xsetup
-sudo cp dotfiles/config/sddm/sddm.conf /etc/sddm.conf
-sudo systemctl enable sddm.conf
-
-# Configure
-cp -r dotfiles/config/alacritty ~/.config/
-cp -r dotfiles/config/ulauncher ~/.config/
-
-# .local/share
-mkdir -p .local/share
-cp -r dotfiles/config/.local/share/* .local/share/
-
-# Configure Home
-mkdir Repos
-mkdir Work
-mkdir Screenshots
-
-cp dotfiles/.bashrc ~/
-cp dotfiles/config/starship.toml ~/.config/
-
-# Fancy decryption
-yay -S plymouth-git
 # Edit mkinitcpio and add "plymouth plymouth-encrypt" in HOOKS auf "udev"
 sudo mkinitcpio -p linux
-
-# Edit /etc/default/grub
-# Add "quiet splash" to GRUB_CMDLINE_LINUX_DEFAULT
-grub-mkconfig -o /boot/grub/grub.cfg
-
-sudo cp -r dotfiles/plymouth/pop-basic /usr/share/plymouth/themes/
-sudp cp dotfiles/plymouth/plymouthd.conf /etc/plymouth/
-sudo cp dotfiles/plymouth/sddm-plymouth.service
 sudo plymouth-set-default-theme pop-basic -R
 
-# GTK THEME
-yay -S pop-theme
-sudo cp dotfiles/environment /etc/
-```
-
-##### Wayland with sway
-```sh
-yay -S playerctl sway swaylock swayidle waybar swaybg brightnessctl pipewire-media-session mako wl-clipboard clipman swayshot
-# You may need to do this so brightnessctl works
-sudo chmod u+s /usr/bin/brightnessctl
-
-# xdg-desktop-portal interferes with the xorg setup, so currently it doesnt help with screensharing anyway, but leaving it here in case you want to use the sway setup
-yay -S xdg-desktop-portal-wlr
-
-cp -r dotfiles/config/sway ~/.config/
-cp -r dotfiles/config/system ~/.config/
-cp -r dotfiles/config/waybar ~/.config/
-sudo cp dotfiles/sway.desktop /usr/share/wayland-sessions/
-sudo cp dotfiles/sway_integrated.desktop /usr/share/wayland-sessions/
-cp -r dotfiles/config/mako ~/.config/
-cp dotfiles/swayshot.sh ~/.config/
-
-```
-
-#### Xorg with i3
-```sh
-yay -S i3-gaps polybar feh picom dunst network-manager-applet flameshot i3lock i3lockmore-git copyq xss-lock xclip
-
-# Polybar dependencies
-yay -S zscroll-git
-
-cp -r dotfiles/config/i3 ~/.config/
-cp -r dotfiles/config/polybar ~/.config/
-cp -r dotfiles/config/dunst ~/.config/
-cp -r dotfiles/config/picom ~/.config/
-cp dotfiles/xrandr_displays.sh ~/.config/
-cp dotfiles/display_detector.sh ~/.config/
-
-# ACPI Lid closed
-sudo cp dotfiles/logind.conf /etc/systemd/
-sudo cp dotfiles/laptop-lid /etc/acpi/events/laptop-lid
-sudo cp dotfiles/laptop-lid.sh /etc/acpi/
-# reboot to take effect!
-```
-
-#### Fonts
-Honestly, I just add everything and hope that it covers everything
-```sh
-yay -S ttf-jetbrains-mono ttf-caladea ttf-carlito ttf-opensans noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-emoji ttf-liberation ttf-dejavu ttf-roboto ttf-inconsolata ttf-font-awesome ttf-ubuntu-font-family ttf-d2coding ttf-muli nerd-fonts-source-code-pro ttf-unifont siji-ttf termsyn-font
-
-sudo mkdir -p /usr/local/share/fonts/
-sudo cp dotfiles/fonts/* /usr/local/share/fonts/
-fc-cache
+# reboot for everything to take effect
 ```
 </details>

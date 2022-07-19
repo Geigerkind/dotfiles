@@ -8,3 +8,4 @@ KEYMAP=de-latin1
 EDITOR='nvim'
 VISUAL='nvim'
 GTK_THEME=Pop-dark
+BROWSER=firefox

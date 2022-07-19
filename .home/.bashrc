@@ -101,6 +101,7 @@ alias g="git"
 alias gMail="gMailOtto"
 alias gMailOtto='git config user.email "tom.dymel@otto.de"'
 alias gMailWPS='git config user.email "tom.dymel@wps.de"'
+alias gMailPrivate='git config user.email "tom@dymel.eu"'
 
 # System Util
 alias grubRedoConfig='sudo grub-mkconfig -o /boot/grub/grub.cfg'

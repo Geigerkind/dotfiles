@@ -2,7 +2,6 @@
 
 PARTITION_HOME=${1}
 
-dhcpcd
 sudo pacman -S zip unzip tar unrar wget htop clang cmake git python go openssh npm pacman-contrib pkgconfig autoconf automake man p7zip bzip2 zstd xz gzip
 
 # Network
@@ -34,22 +33,26 @@ cd ..
 rm -rf yay
 
 # System76
-yay -s system76-io-dkms system76-dkms system76-firmware-daemon firmware-manager-git system76-acpi-dkms system76-driver system76-power
-
 # Fixes sha512 error during dkms
 sudo ln -s /usr/bin/sha512sum /usr/bin/sha512
+
+yay -S system76-io-dkms system76-dkms system76-firmware-daemon firmware-manager-git system76-acpi-dkms system76-driver system76-power
 
 sudo systemctl enable --now system76-firmware-daemon
 sudo systemctl enable --now system76
 sudo systemctl enable --now com.system76.PowerDaemon.service
 
-sudo yay -S nvidia nvidia-utils nvidia-settings nvidia-prime optimus-manager
+sudo yay -S nvidia nvidia-utils nvidia-settings nvidia-prime
 
 # PRIME
+yay -S optimus-manager
 sudo cp ./graphics/optimus-manager.conf /etc/optimus-manager/
 sudo systemctl enable optimus-manager
 sudo sed -i "s/MODULES=()/MODULES=(intel_agp i915)/g" /etc/mkinitcpio.conf
 sudo mkinitcpio -P
+
+sudo sed -i "s/GRUB_CMDLINE_LIUNUX_DEFAULT=\"loglevel=3 quiet\"/GRUB_CMDLINE_LIUNUX_DEFAULT=\"fbcon=map:1 quiet loglevel=3 splash rd.driver.blacklist=nouveau nvidia-drm.modeset=1\"/g" /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Audio
 pacman -S alsa alsa-firmware pulseaudio pavucontrol
@@ -61,7 +64,7 @@ sudo archlinux-java set java-18-openjdk
 
 # Anti-Virus
 sudo pacman -S clamav
-freshclam
+sudo freshclam
 sudo systemctl enable clamav-freshclam.service
 sudo systemctl start clamav-freshclam.service
 

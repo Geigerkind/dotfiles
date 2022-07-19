@@ -3,8 +3,9 @@
 ## Packages
 yay -S firefox alacritty exa nautilus discord signal-desktop neofetch spotify libreoffice
 yay -S btop
-yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre rustup neovim nvim-packer-git
-yay -S teams zoom keepassxc virtualbox terraform tfenv chromium
+yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre 
+yay -S neovim nvim-packer-git
+yay -S teams zoom keepassxc virtualbox terraform chromium
 yay -S docker docker-compose
 yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects qt5-svg vulkan-icd-loader vulkan-validation-layers qt5-virtualkeyboard
 yay -S ulauncher translate-shell python-pip starship
@@ -21,7 +22,6 @@ sudo cp ./graphics/50-gpu.conf /etc/X11/xorg.conf.d/
 pip install requests --user
 
 sudo systemctl enable docker
-sudo usermod -ag tfenv ${USER}
 
 ## Fonts
 sudo mkdir -p /usr/local/share/fonts/
@@ -57,13 +57,17 @@ sudo cp ./laptop-lid-display-toggle/laptop-lid.sh /etc/acpi/
 
 ## Plymouth
 sudo cp -r ./plymouth/pop-basic /usr/share/plymouth/themes/
-sudp cp ./plymouth/plymouthd.conf /etc/plymouth/
+sudo cp ./plymouth/plymouthd.conf /etc/plymouth/
 sudo cp ./plymouth/sddm-plymouth.service
+sudo sed -i "s/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/HOOKS=(base udev plymouth plymouth-encrypt autodetect modconf block filesystems keyboard fsck)/g" /etc/mkinitcpio.conf
+sudo mkinitcpio -p linux
+sudo plymouth-set-default-theme pop-basic -R
 
 ## SDDM
 sudo cp -r ./config/sddm/sugar-candy /usr/share/sddm/themes/
 sudo cp ./config/sddm/Xsetup /usr/share/sddm/scripts/Xsetup
 sudo cp ./config/sddm/sddm.conf /etc/sddm.conf
 sudo systemctl enable sddm.conf
+
 
 

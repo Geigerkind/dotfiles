@@ -185,21 +185,15 @@ reboot
 <summary>Configuration</summary>
 
 ```bash
+sudo dhcpcd
+git clone https://github.com/Geigerkind/dotfiles
 bash ./scripts/config.sh nvme0n1p3
-
-# TODO: Find out what is actual default to replace it
-# grub config
-# fbcon=map:1 forces luks output on the builtin display during boot when external monitors are connected
-# However this also causes that if none are selected you are blind again to type luks, which is why we need to add another grub entry
-# Add fbcon=map:1 rd.driver.blacklist=nouveau nvidia-drm.modeset=1 to GRUB_CMDLINE_LINUX_DEFAULT
-sudo vim /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Enable dGPU
 reboot
 prime-offload
 optimus-manager --switch nvidia
-system76-power graphics nvidia
+sudo system76-power graphics nvidia
 
 reboot
 ```
@@ -212,10 +206,6 @@ reboot
 bash ./scripts/rice.sh
 
 nvim +PackerInstall
-
-# Edit mkinitcpio and add "plymouth plymouth-encrypt" in HOOKS auf "udev"
-sudo mkinitcpio -p linux
-sudo plymouth-set-default-theme pop-basic -R
 
 # reboot for everything to take effect
 ```

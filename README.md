@@ -112,10 +112,10 @@ lsblk
 
 # You may have to remove partitions before
 # Follow the instructions d, enter, select partition, repeat
-fdisk /dev/nvme1n1
+fdisk /dev/nvme0n1
 
 # Choose gpt
-cfdisk /dev/nvme1n1
+cfdisk /dev/nvme0n1
 # Create 3 partitions
 ## Goto new, enter size and select type, 'Free Space'
 ## First: Size: 256MB, Type: 'EFI'
@@ -127,30 +127,30 @@ cfdisk /dev/nvme1n1
 #### Encrypt root partition
 ```sh
 # Confirm with uppercase YES and type desired password
-cryptsetup luksFormat -v -s 512 -h sha512 /dev/nvme1n1p3
+cryptsetup luksFormat -v -s 512 -h sha512 /dev/nvme0n1p3
 
 # Open it, it will prompt for your password
 # The partition will be available under /dev/mapper/luks_root
-cryptsetup open /dev/nvme1n1p3 luks_root
+cryptsetup open /dev/nvme0n1p3 luks_root
 ```
 
 #### Format and mount file system
 ```sh
 # Format all partitions
-mkfs.vfat -n “EFI” /dev/nvme1n1p1
-mkfs.ext4 -L boot /dev/nvme1n1p2
+mkfs.vfat -n “EFI” /dev/nvme0n1p1
+mkfs.ext4 -L boot /dev/nvme0n1p2
 mkfs.ext4 -L root /dev/mapper/luks_root
 
 # Mount them
 mount /dev/mapper/luks_root /mnt
 mkdir /mnt/boot
-mount /dev/nvme1n1p2 /mnt/boot
+mount /dev/nvme0n1p2 /mnt/boot
 mkdir /mnt/boot/efi
-mount /dev/nvme1n1p1 /mnt/boot/efi
+mount /dev/nvme0n1p1 /mnt/boot/efi
 
 # Create a swap
 cd /mnt
-dd if=/dev/zero of=swap bs=1M count=1024
+dd if=/dev/zero of=swap bs=1M count=65536
 mkswap swap
 swapon swap
 chmod 0600 swap
@@ -174,7 +174,7 @@ arch-chroot /mnt
 pacman -S git
 git clone https://github.com/Geigerkind/dotfiles
 cd dotfiles
-bash ./scripts/install_arch.sh
+bash ./scripts/install_arch.sh nvme0n1p2 nvme0n1p3
 
 exit
 reboot

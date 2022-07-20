@@ -72,3 +72,8 @@ sudo systemctl start clamav-freshclam.service
 # Printer
 yay -S cups cups-pdf usbutils
 sudo systemctl enable cups.socket
+
+# Display Link
+yay -S evdi displaylink
+sudo cp ./graphics/60-evdi.conf /etc/X11/xorg.conf.d/
+sudo systemctl enable displaylink.service

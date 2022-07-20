@@ -9,3 +9,5 @@ EDITOR='nvim'
 VISUAL='nvim'
 GTK_THEME=Pop-dark
 BROWSER=firefox
+CLOUDSDK_PYTHON=/usr/bin/python
+GOOGLE_APPLICATION_CREDENTIALS=/home/shino/.config/gcloud/application_default_credentials.json

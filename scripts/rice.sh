@@ -3,6 +3,7 @@
 ## Packages
 yay -S firefox alacritty exa nautilus discord signal-desktop neofetch spotify libreoffice
 yay -S btop
+yay -S postman
 yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre 
 yay -S neovim nvim-packer-git
 yay -S teams zoom keepassxc virtualbox terraform chromium
@@ -22,6 +23,8 @@ sudo cp ./graphics/50-gpu.conf /etc/X11/xorg.conf.d/
 pip install requests --user
 
 sudo systemctl enable docker
+sudo groupadd docker
+sudo usermod -aG docker shino
 
 ## Fonts
 sudo mkdir -p /usr/local/share/fonts/

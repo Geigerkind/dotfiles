@@ -55,8 +55,9 @@ sudo sed -i "s/GRUB_CMDLINE_LIUNUX_DEFAULT=\"loglevel=3 quiet\"/GRUB_CMDLINE_LIU
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Audio
-pacman -S alsa alsa-firmware pulseaudio pavucontrol
+yay -S alsa alsa-firmware pulseaudio pavucontrol
 sudo cp ./audio/audio-patch.conf /etc/modprobe.d/
+sudo -i "s/load-module module-role-cork/#load-module module-role-cork/g" /etc/pulse/default.pa
 
 # Java
 sudo pacman -S jre-openjdk jdk-openjdk

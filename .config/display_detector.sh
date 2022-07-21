@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xrandr --auto
 if grep -q closed /proc/acpi/button/lid/LID0/state ; then xrandr $(bash /home/shino/.config/xrandr_displays.sh false); echo "TEST"; else xrandr $(bash /home/shino/.config/xrandr_displays.sh true); fi
+xrandr --auto
 sleep 5s
 i3-msg restart

@@ -5,6 +5,7 @@ for_window [class="xfce-polkit"] floating enable
 for_window [title="Authentication required"] floating enable
 for_window [title="Picture in picture"] floating enable
 for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [title="Microsoft Teams Notification"] floating enable
 
 # Spotify hack
 for_window [class="Spotify"] exec "sleep .1; pkill -RTMIN+4 waybar"

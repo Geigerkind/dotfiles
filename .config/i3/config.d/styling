@@ -27,3 +27,6 @@ set_from_resource $dark *.color0 #141414
 client.focused    $primary		$dark			$primary	$primary		$primary
 client.unfocused  $accent		$dark			$accent		$dark			$dark
 client.background $dark
+
+# Floating exceptions
+for_window [title="Microsoft Teams Notification"] floating enable

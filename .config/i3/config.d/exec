@@ -10,3 +10,5 @@ exec_always "sh $HOME/.config/polybar/launch.sh"
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lockmore --image-fill $HOME/.config/sway/bg.png --nofork
 
 exec_always --no-startup-id feh --bg-fill $HOME/.config/sway/bg.png
+exec_always xhost +SI:localuser:root
+

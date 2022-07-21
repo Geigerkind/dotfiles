@@ -49,6 +49,7 @@ mkdir ~/Screenshots
 sudo cp ./laptop-lid-display-toggle/logind.conf /etc/systemd/
 sudo cp ./laptop-lid-display-toggle/laptop-lid /etc/acpi/events/laptop-lid
 sudo cp ./laptop-lid-display-toggle/laptop-lid.sh /etc/acpi/
+sudo chmod 777 /etc/acpi/laptop-lid.sh
 
 ## Wayland
 

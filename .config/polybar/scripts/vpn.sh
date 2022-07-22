@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(ps aux | grep "openconnect --protocol=gp" | wc -l) -gt 2 ]; then
+if [ $(ps aux | grep "[o]penconnect --protocol=gp" | wc -l) -gt 0 ]; then
    echo "On"
 else
    echo "Off"

@@ -107,8 +107,28 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
 bindsym $mod+f mode "resize"
+
+##
+# move floating windows with keys
+bindsym $mod+n mode "move" focus floating
+mode "move" {
+    bindsym $mod+Tab focus right
+
+    bindsym Left  move left
+    bindsym Down  move down
+    bindsym Up    move up
+    bindsym Right move right
+
+    bindsym j     move left
+    bindsym k     move down
+    bindsym i     move up
+    bindsym l     move right
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # Custom bindings
 bindsym $mod+Escape exec i3lockmore --image-fill $HOME/.config/sway/bg.png

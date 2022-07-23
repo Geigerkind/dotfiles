@@ -86,7 +86,6 @@
 
 </details>
 <details>
-<details>
 <summary>IntelliJ</summary>
 
 * **CTRL + ALT + R**: Rename

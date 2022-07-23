@@ -32,6 +32,72 @@
 ![sway](preview/sway.png)
 </details>
 
+## Bindings
+<details>
+<summary>VIM Bindings</summary>
+
+### Moving
+#### Words
+* **b**: Move to the start of the **previous** word
+* **w**: Move to the start of the **next** word
+* **e**: Move to the end of the word
+#### Lines
+* **0**: Move to the start of the line
+* **^**: Move to the first **non-blank** character of the line
+* **$**: Move to the end of the line
+* **:<LINE_NUMBER>**: Move to a specific line
+* **G**: Move to the end of the file
+* **gg**: Move to the begginning of the file
+
+### Inserting Text
+* **a**: Insert **after** the cursor
+* **A**: Insert at the **end** of the line
+* **o**: Insert **below** the current line
+* **O**: Insert **above** the current line
+
+### Editing Text
+* **r**: Replace a single character and return to command mode
+* **cc**: **Replace (its in the clipboard)** entire line and go into insert mode
+* **c<MOVEMENT CHARACTER>**: Replace from the cursor to whereever specified after
+* **J / gJ**: Merge with the line below with or without a space
+* **u**: Undo
+* **CTRL + r**: Redo
+* **w !sudo tee %**: Write file using sudo and tee
+
+### Copy and Paste
+* **yy**: Copy line
+* **dd**: Cut line
+* **p**: Paste **after** the cursor
+* **P**: Paste **before** the cursor
+
+### Selecting
+* **v**: Select by character
+* **V**: Select by line
+* **CTRL + v**: Select by block mode
+* **y**: Copy selected
+* **d**: Cut selected
+* **u**: Change to lowercase
+* **U**: Change to uppercase
+
+### Searching
+* **(/|?)pattern**: Forward or backward pattern search
+* **n**: Repeat search in same direction
+* **N**: Repeat search in oppsosite direction
+
+</details>
+<details>
+<details>
+<summary>IntelliJ</summary>
+
+* **CTRL + ALT + R**: Rename
+* **CTRL + ALT + T**: Sorround with
+* **CTRL + ALT + V**: Extract local variable
+* **CTRL + ALT + F**: Extract to field
+* **CTRL + ALT + N**: Inline
+* **CTRL + ALT + M**: Extract method
+
+</details>
+
 ## Installation
 <details>
 <summary>System setup</summary>

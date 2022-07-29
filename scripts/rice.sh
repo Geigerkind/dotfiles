@@ -38,6 +38,8 @@ sudo cp -r ./.config/nvim /home/root/.config/
 cp -r ./.config ~/
 cp -r ./.local ~/
 cp ./.home/.bashrc ~/
+cp ./.home/.terraformrc ~/
+cp -r ./.home/.terraform.d ~/ 
 sudo cp ./environment /etc/
 
 ## Home

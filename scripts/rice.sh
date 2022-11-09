@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Packages
-yay -S firefox alacritty exa nautilus discord signal-desktop neofetch spotify libreoffice
+yay -S firefox alacritty exa nautilus discord neofetch spotify libreoffice
 yay -S btop
 yay -S postman
 yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre 

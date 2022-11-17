@@ -2,7 +2,7 @@
 
 PARTITION_HOME=${1}
 
-sudo pacman -S zip unzip tar unrar wget htop clang cmake git python go openssh npm pacman-contrib pkgconfig autoconf automake man p7zip bzip2 zstd xz gzip
+sudo pacman -S zip unzip tar unrar wget htop clang cmake git python go openssh npm pacman-contrib pkgconfig autoconf automake man p7zip bzip2 zstd xz gzip ntp
 
 # Network
 sudo systemctl enable --now NetworkManager

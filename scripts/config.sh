@@ -8,6 +8,10 @@ sudo pacman -S zip unzip tar unrar wget htop clang cmake git python go openssh n
 sudo systemctl enable --now NetworkManager
 sudo systemctl enable --now acpid
 
+# Time
+sudo cp ./misc/timesyncd.conf /etc/systemd/
+sudo timedatectl set-ntp 1
+
 # Intel ucode
 sudo pacman -S intel-ucode
 sudo grub-mkconfig -o /boot/grub/grub.cfg

@@ -97,6 +97,7 @@ alias pkClean='yay -Scc'
 alias pkUpdate='yay -Syu'
 alias untar='tar -xzf'
 alias htop="btop"
+alias wetterHamburg="curl wttr.in/Hamburg"
 
 # Git
 alias g="git"
@@ -104,9 +105,16 @@ alias gMail="gMailOtto"
 alias gMailOtto='git config user.email "tom.dymel@otto.de"'
 alias gMailWPS='git config user.email "tom.dymel@wps.de"'
 alias gMailPrivate='git config user.email "tom@dymel.eu"'
+alias unCommit="git reset --soft HEAD~1"
 
 # System Util
 alias grubRedoConfig='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mkinitRedo='sudo mkinitcpio -p linux'
 
 eval "$(starship init bash)"
+
+# EXPORTS
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export PATH=$PATH:$HOME/.config/bin

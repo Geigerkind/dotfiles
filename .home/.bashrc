@@ -105,7 +105,7 @@ alias gMail="gMailOtto"
 alias gMailOtto='git config user.email "tom.dymel@otto.de"'
 alias gMailWPS='git config user.email "tom.dymel@wps.de"'
 alias gMailPrivate='git config user.email "tom@dymel.eu"'
-alias unCommit="git reset --soft HEAD~1"
+alias gUncommit="git reset --soft HEAD~1"
 
 # System Util
 alias grubRedoConfig='sudo grub-mkconfig -o /boot/grub/grub.cfg'

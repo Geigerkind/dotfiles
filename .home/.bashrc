@@ -98,6 +98,7 @@ alias pkUpdate='yay -Syu'
 alias untar='tar -xzf'
 alias htop="btop"
 alias wetterHamburg="curl wttr.in/Hamburg"
+alias batteryMode="sudo system76-power profile battery"
 
 # Git
 alias g="git"

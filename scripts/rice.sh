@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Packages
-yay -S firefox alacritty exa nautilus discord neofetch spotify libreoffice
+yay -S firefox alacritty exa nautilus discord discord-canary-electron-bin neofetch spotify libreoffice
 yay -S btop
 yay -S postman
 yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre 
@@ -54,9 +54,7 @@ sudo cp ./laptop-lid-display-toggle/laptop-lid.sh /etc/acpi/
 sudo chmod 777 /etc/acpi/laptop-lid.sh
 
 ## Wayland
-
-# xdg-desktop-portal interferes with the xorg setup, so currently it doesnt help with screensharing anyway, but leaving it here in case you want to use the sway setup
-#yay -S xdg-desktop-portal-wlr
+yay -S xdg-desktop-portal-wlr
 
 # You may need to do this so brightnessctl works
 #sudo chmod u+s /usr/bin/brightnessctl
@@ -73,6 +71,7 @@ sudo plymouth-set-default-theme pop-basic -R
 sudo cp -r ./config/sddm/sugar-candy /usr/share/sddm/themes/
 sudo cp ./config/sddm/Xsetup /usr/share/sddm/scripts/Xsetup
 sudo cp ./config/sddm/sddm.conf /etc/sddm.conf
+sudo cp ./config/sddm/sway* /usr/share/wayland-sessions/
 sudo systemctl enable sddm.conf
 
 

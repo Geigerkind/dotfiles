@@ -9,10 +9,8 @@
 * Built-In screen turns off when lid is closed
 
 ## Wayland: Known bugs
-* Screensharing does not work
-* Electron applications dont work
-* Behaviour rather wonky with NVIDIA driver and vulkan wlr renderer
-* Screenshots dont work using NVIDIA driver
+* Screensharing only works with the integrated graphics card
+* Screenshots only work with the integrated graphics card
 
 ## Preview
 <details>

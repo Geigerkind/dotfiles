@@ -24,4 +24,6 @@ export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_PICTURES_DIR=$HOME/Screenshots
 
+systemctl --user start xdg-desktop-portal
+systemctl --user start xdg-desktop-portal-wlr
 dbus-run-session sway --unsupported-gpu

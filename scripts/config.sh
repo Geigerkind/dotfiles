@@ -52,11 +52,14 @@ sudo yay -S nvidia nvidia-utils nvidia-settings nvidia-prime
 yay -S optimus-manager
 sudo cp ./graphics/optimus-manager.conf /etc/optimus-manager/
 sudo systemctl enable optimus-manager
-sudo sed -i "s/MODULES=()/MODULES=(intel_agp i915)/g" /etc/mkinitcpio.conf
+sudo sed -i "s/MODULES=()/MODULES=(intel_agp i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm)/g" /etc/mkinitcpio.conf
 sudo mkinitcpio -P
 
 sudo sed -i "s/GRUB_CMDLINE_LIUNUX_DEFAULT=\"loglevel=3 quiet\"/GRUB_CMDLINE_LIUNUX_DEFAULT=\"fbcon=map:1 quiet loglevel=3 splash rd.driver.blacklist=nouveau nvidia-drm.modeset=1\"/g" /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+sudo mkdir /etc/pacman.d/hooks
+sudo cp ./graphics/nvidia.hook /etc/pacman.d/hooks/
 
 # Audio
 yay -S alsa alsa-firmware pulseaudio pavucontrol

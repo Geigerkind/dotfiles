@@ -56,7 +56,7 @@ sudo cp ./laptop-lid-display-toggle/laptop-lid.sh /etc/acpi/
 sudo chmod 777 /etc/acpi/laptop-lid.sh
 
 ## Wayland
-yay -S playerctl sway swaylock swayidle waybar swaybg brightnessctl pipewire-media-session mako wl-clipboard clipman swayshot
+yay -S playerctl sway-git swaylock swayidle waybar swaybg-git brightnessctl pipewire-media-session mako wl-clipboard clipman swayshot
 yay -S xdg-desktop-portal-wlr slurp
 yay -S wdisplays jq
 

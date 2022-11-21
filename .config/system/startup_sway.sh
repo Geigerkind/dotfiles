@@ -23,7 +23,6 @@ export MOZ_ENABLE_WAYLAND=1
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_PICTURES_DIR=$HOME/Screenshots
+export SWAYSHOT_WL_COPY_FILE=false
 
-systemctl --user start xdg-desktop-portal
-systemctl --user start xdg-desktop-portal-wlr
 dbus-run-session sway --unsupported-gpu

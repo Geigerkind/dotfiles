@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Packages
-yay -S firefox alacritty exa nautilus discord discord-canary-electron-bin neofetch spotify libreoffice
+yay -S firefox alacritty exa nautilus discord discord-canary-electron-bin neofetch spotify libreoffice xournal
 yay -S btop
 yay -S postman
 yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre 
@@ -29,6 +29,9 @@ sudo usermod -aG docker shino
 sudo mkdir -p /usr/local/share/fonts/
 sudo cp ./fonts/* /usr/local/share/fonts/
 fc-cache
+gsettings set org.gnome.desktop.interface monospace-font-name 'Liberation Mono 11'
+gsettings set org.gnome.desktop.interface document-font-name 'Roboto 11'
+gsettings set org.gnome.desktop.interface font-name 'Roboto 11'
 
 ## Config
 sudo mkdir /home/root/.config

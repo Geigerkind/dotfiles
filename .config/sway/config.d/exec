@@ -13,3 +13,8 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 #exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
 #exec dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec exec_always xhost +SI:localuser:root
+
+# Font configuration
+exec gsettings set org.gnome.desktop.interface monospace-font-name 'Liberation Mono 11'
+exec gsettings set org.gnome.desktop.interface document-font-name 'Roboto 11'
+exec gsettings set org.gnome.desktop.interface font-name 'Roboto 11'

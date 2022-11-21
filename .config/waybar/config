@@ -69,7 +69,7 @@
     },
     "cpu": {
         "interval": 10,
-        "format": "{}% ",
+        "format": "{usage}% ",
         "max-length": 10
     },
     "memory": {
@@ -110,11 +110,11 @@
     },
     "pulseaudio": {
         "scroll-step": 2,
-        "format": "{icon} {volume}    {format_source}",
+        "format": "{volume} {icon}   {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": " {volume}",
+        "format-bluetooth-muted": "{format_source}  {icon}",
+        "format-muted": "{format_source} ",
+        "format-source": "{volume} ",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",

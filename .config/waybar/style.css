@@ -178,3 +178,7 @@ label:focus {
     border-radius:      0px 0px 5px 0px;
     border-bottom:      2px solid @grey-light;
 }
+
+#pulseaudio, #cpu, #memory, #network, #battery, #clock {
+  border-right: 1px solid #3c3836;
+}

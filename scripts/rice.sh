@@ -55,7 +55,7 @@ sudo chmod 777 /etc/acpi/laptop-lid.sh
 ## Wayland
 yay -S playerctl sway swaylock swayidle waybar swaybg brightnessctl pipewire-media-session mako wl-clipboard clipman swayshot
 yay -S xdg-desktop-portal-wlr
-yay -S wdisplays
+yay -S wdisplays jq
 
 # You may need to do this so brightnessctl works
 #sudo chmod u+s /usr/bin/brightnessctl

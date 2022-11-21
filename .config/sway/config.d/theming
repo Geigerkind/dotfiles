@@ -13,12 +13,12 @@ bar {
 
 # Gaps
 smart_gaps off
-gaps inner 5
-gaps outer -5
+gaps inner 3
+gaps outer -3
 gaps bottom 1
 gaps top 1
 
-default_border pixel 2
+default_border pixel 1
 
 # Theming
 set $gnome-schema org.gnome.desktop.interface

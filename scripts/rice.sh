@@ -6,7 +6,7 @@ yay -S btop
 yay -S postman
 yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre 
 yay -S neovim nvim-packer-git
-yay -S teams zoom keepassxc virtualbox terraform chromium
+yay -S keepassxc virtualbox terraform chromium microsoft-edge-stable-bin 
 yay -S docker docker-compose
 yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects qt5-svg vulkan-icd-loader vulkan-validation-layers qt5-virtualkeyboard
 yay -S ulauncher translate-shell python-pip starship

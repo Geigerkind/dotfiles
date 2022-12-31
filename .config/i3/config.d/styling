@@ -1,6 +1,7 @@
 workspace_layout default
 focus_follows_mouse yes
 force_focus_wrapping force
+focus_on_window_activation none
 
 # Font
 font pango: Jetbrains Mono 8

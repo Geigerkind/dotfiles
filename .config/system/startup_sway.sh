@@ -1,6 +1,7 @@
 USE_NVIDIA=${1}
 
 if [ "${USE_NVIDIA}" = "true" ]; then
+  export LIBVA_DRIVER_NAME=nvidia
   export __GL_GSYNC_ALLOWED=0
   export __GL_VRR_ALLOWED=0
   export WLR_DRM_NO_ATOMIC=1

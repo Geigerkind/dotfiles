@@ -145,5 +145,7 @@ bindsym $mod+F6 exec "bash $home/.config/waybar/spotify/controls.sh next"
 bindsym $mod+F7 exec brightnessctl set 5%-
 bindsym $mod+F8 exec brightnessctl set +5%
 
+bindsym $mod+F9 exec pactl set-source-mute 2 toggle
+
 bindsym $mod+Print exec "flameshot screen"
 bindsym $mod+Shift+s exec "flameshot gui"

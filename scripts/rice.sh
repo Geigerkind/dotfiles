@@ -78,5 +78,8 @@ sudo cp ./config/sddm/sddm.conf /etc/sddm.conf
 sudo cp ./config/sddm/sway* /usr/share/wayland-sessions/
 sudo systemctl enable sddm.conf
 
+## Bluetooth
+yay -S blueman pulseaudio-bluetooth
+sudo systemctl enable bluetooth.service
 
 

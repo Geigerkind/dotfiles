@@ -12,7 +12,7 @@ yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects 
 yay -S ulauncher translate-shell python-pip starship
 yay -S plymouth-git
 yay -S pop-theme
-yay -S i3-gaps polybar feh picom dunst network-manager-applet flameshot i3lock i3lockmore-git copyq xss-lock xclip
+yay -S i3-wm polybar feh picom dunst network-manager-applet flameshot i3lock i3lockmore-git copyq xss-lock xclip
 yay -S zscroll-git
 yay -S ttf-jetbrains-mono ttf-caladea ttf-carlito ttf-opensans noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-emoji ttf-liberation ttf-dejavu ttf-roboto ttf-inconsolata ttf-font-awesome ttf-ubuntu-font-family ttf-d2coding ttf-muli nerd-fonts-source-code-pro ttf-unifont siji-ttf termsyn-font
 

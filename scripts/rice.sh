@@ -4,7 +4,7 @@
 yay -S firefox alacritty exa nautilus discord-canary-electron-bin neofetch spotify libreoffice xournal
 yay -S btop
 yay -S postman
-yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre 
+yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre yarn
 yay -S neovim nvim-packer-git
 yay -S keepassxc virtualbox terraform chromium microsoft-edge-stable-bin 
 yay -S docker docker-compose

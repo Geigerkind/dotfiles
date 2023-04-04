@@ -81,8 +81,9 @@ sudo systemctl start clamav-freshclam.service
 sudo systemctl enable clamav-daemon.service
 sudo systemctl start clamav-daemon.service
 
-sudo systemctl enable clamav-clamonacc.service
-sudo systemctl start clamav-clamonacc.service
+# Performance tanks to much with it
+# sudo systemctl enable clamav-clamonacc.service
+# sudo systemctl start clamav-clamonacc.service
 
 # Printer
 yay -S cups cups-pdf usbutils

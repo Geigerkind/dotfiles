@@ -3,7 +3,7 @@
 PARTITION_BOOT=${1}
 PARTITION_HOME=${2}
 
-pacman -S netctl dialog dhcpcd pulseaudio alsa linux-headers ntfs-3g
+pacman -S netctl dialog dhcpcd pipewire-pulse alsa linux-headers ntfs-3g
 pacman -S xf86-video-intel xf86-video-nouveau mesa mesa-demos acpi acpid
 
 # Time zone

@@ -62,7 +62,7 @@ sudo mkdir /etc/pacman.d/hooks
 sudo cp ./graphics/nvidia.hook /etc/pacman.d/hooks/
 
 # Audio
-yay -S alsa alsa-firmware pulseaudio pavucontrol
+yay -S alsa alsa-firmware pipewire-pulse pavucontrol
 sudo cp ./audio/audio-patch.conf /etc/modprobe.d/
 sudo -i "s/load-module module-role-cork/#load-module module-role-cork/g" /etc/pulse/default.pa
 

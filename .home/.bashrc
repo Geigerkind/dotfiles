@@ -90,6 +90,7 @@ export PS1="\t: \[\e[32m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\]: \[\e[31m\]\W\[\e[m\] 
 
 # Util
 alias ls='exa'
+alias find='fd'
 alias ll='ls -lah'
 alias df='df -h'
 alias pkDel='yay -Rs'

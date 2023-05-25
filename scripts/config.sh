@@ -74,6 +74,7 @@ sudo archlinux-java set java-18-openjdk
 sudo pacman -S clamav
 sudo cp ./misc/clamd.conf /etc/clamav/
 
+sudo systemctl stop clamav-freshclam.service
 sudo freshclam
 sudo systemctl enable clamav-freshclam.service
 sudo systemctl start clamav-freshclam.service

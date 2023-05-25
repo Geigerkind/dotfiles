@@ -190,7 +190,7 @@ cfdisk /dev/nvme0n1
 #### Encrypt root partition
 ```sh
 # Confirm with uppercase YES and type desired password
-cryptsetup luksFormat -v -s 512 -h sha512 /dev/nvme0n1p3
+cryptsetup luksFormat /dev/nvme0n1p3
 
 # Open it, it will prompt for your password
 # The partition will be available under /dev/mapper/luks_root

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Packages
-yay -S firefox alacritty exa fd nautilus discord neofetch spotify libreoffice xournal
+yay -S firefox alacritty exa fd nautilus discord neofetch spotify libreoffice xournal obsidian
 yay -S btop parallel pngquat
 yay -S postman
 yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre yarn
@@ -10,8 +10,6 @@ yay -S keepassxc virtualbox terraform chromium microsoft-edge-stable-bin
 yay -S docker docker-compose
 yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects qt5-svg vulkan-icd-loader vulkan-validation-layers qt5-virtualkeyboard
 yay -S ulauncher translate-shell python-pip starship
-yay -S plymouth-git
-yay -S pop-theme
 yay -S i3-wm polybar feh picom dunst network-manager-applet flameshot i3lock i3lockmore-git copyq xss-lock xclip
 yay -S zscroll-git
 yay -S ttf-jetbrains-mono ttf-caladea ttf-carlito ttf-opensans noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-emoji ttf-liberation ttf-dejavu ttf-roboto ttf-inconsolata ttf-font-awesome ttf-ubuntu-font-family ttf-d2coding ttf-muli nerd-fonts-source-code-pro ttf-unifont siji-ttf termsyn-font
@@ -65,12 +63,13 @@ yay -S wdisplays jq
 #sudo chmod u+s /usr/bin/brightnessctl
 
 ## Plymouth
-sudo cp -r ./plymouth/pop-basic /usr/share/plymouth/themes/
-sudo cp ./plymouth/plymouthd.conf /etc/plymouth/
-sudo cp ./plymouth/sddm-plymouth.service
-sudo sed -i "s/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/HOOKS=(base udev plymouth plymouth-encrypt autodetect modconf block filesystems keyboard fsck)/g" /etc/mkinitcpio.conf
-sudo mkinitcpio -p linux
-sudo plymouth-set-default-theme pop-basic -R
+# Disabled because its unstable
+# sudo cp -r ./plymouth/pop-basic /usr/share/plymouth/themes/
+#sudo cp ./plymouth/plymouthd.conf /etc/plymouth/
+#sudo cp ./plymouth/sddm-plymouth.service
+#sudo sed -i "s/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/HOOKS=(base udev plymouth plymouth-encrypt autodetect modconf block filesystems keyboard fsck)/g" /etc/mkinitcpio.conf
+#sudo mkinitcpio -p linux
+#sudo plymouth-set-default-theme pop-basic -R
 
 ## SDDM
 sudo cp -r ./config/sddm/sugar-candy /usr/share/sddm/themes/

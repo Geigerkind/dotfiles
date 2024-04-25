@@ -38,13 +38,17 @@ rm -rf yay
 
 # System76
 # Fixes sha512 error during dkms
-sudo ln -s /usr/bin/sha512sum /usr/bin/sha512
+#sudo ln -s /usr/bin/sha512sum /usr/bin/sha512
 
-yay -S system76-io-dkms system76-dkms system76-firmware-daemon firmware-manager-git system76-acpi-dkms system76-driver system76-power
+#yay -S system76-io-dkms system76-dkms system76-firmware-daemon firmware-manager-git system76-acpi-dkms system76-driver system76-power
 
-sudo systemctl enable --now system76-firmware-daemon
-sudo systemctl enable --now system76
-sudo systemctl enable --now com.system76.PowerDaemon.service
+#sudo systemctl enable --now system76-firmware-daemon
+#sudo systemctl enable --now system76
+#sudo systemctl enable --now com.system76.PowerDaemon.service
+
+# Tuxedo
+yay -S tuxedo-drivers-dkms
+yay -S tuxedo-control-center-bin
 
 sudo yay -S nvidia nvidia-utils nvidia-settings nvidia-prime
 

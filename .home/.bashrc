@@ -100,13 +100,12 @@ alias untar='tar -xzf'
 alias htop="btop"
 alias wetterHamburg="curl wttr.in/Hamburg"
 alias batteryMode="sudo system76-power profile battery"
+alias nightmode="redshift -P -O 1000"
 
 # Git
 alias g="git"
-alias gMail="gMailOtto"
-alias gMailOtto='git config user.email "tom.dymel@otto.de"'
-alias gMailWPS='git config user.email "tom.dymel@wps.de"'
-alias gMailPrivate='git config user.email "tom@dymel.eu"'
+alias gMail="gMailPrivate"
+alias gMailPrivate='git config user.email "tom@dymel.dev"'
 alias gUncommit="git reset --soft HEAD~1"
 
 # System Util

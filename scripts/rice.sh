@@ -1,18 +1,22 @@
 #!/bin/bash
 
 ## Packages
-yay -S firefox alacritty exa fd nautilus discord neofetch spotify libreoffice xournal obsidian
-yay -S btop parallel pngquat
+yay -S firefox alacritty exa fd nautilus discord neofetch libreoffice xournal obsidian spotify redshift
+yay -S parallel pngquat
 yay -S postman
 yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre yarn
 yay -S neovim nvim-packer-git
-yay -S keepassxc virtualbox terraform chromium microsoft-edge-stable-bin 
+yay -S keepassxc virtualbox terraform teams-for-linux
 yay -S docker docker-compose
 yay -S xorg autotiling-git udiskie sddm qt5-quickcontrols2 qt5-graphicaleffects qt5-svg vulkan-icd-loader vulkan-validation-layers qt5-virtualkeyboard
-yay -S ulauncher translate-shell python-pip starship
+yay -S ulauncher python-pip starship
 yay -S i3-wm polybar feh picom dunst network-manager-applet flameshot i3lock i3lockmore-git copyq xss-lock xclip
 yay -S zscroll-git
 yay -S ttf-jetbrains-mono ttf-caladea ttf-carlito ttf-opensans noto-fonts noto-fonts-cjk noto-fonts-extra noto-fonts-emoji ttf-liberation ttf-dejavu ttf-roboto ttf-inconsolata ttf-font-awesome ttf-ubuntu-font-family ttf-d2coding ttf-muli nerd-fonts-source-code-pro ttf-unifont siji-ttf termsyn-font
+# yay -S krita
+
+# Nett To Know
+# SyncThing
 
 # Graphics appendix
 sudo cp ./graphics/50-gpu.conf /etc/X11/xorg.conf.d/

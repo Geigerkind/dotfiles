@@ -66,14 +66,14 @@ sudo mkdir /etc/pacman.d/hooks
 sudo cp ./graphics/nvidia.hook /etc/pacman.d/hooks/
 
 # Audio
-yay -S alsa-firmware pipewire-pulse pavucontrol pipewire-alsa pipewire-audio lib32-pipewire pipewire-media-session
+yay -S alsa-firmware pipewire-pulse pavucontrol pipewire-alsa pipewire-audio lib32-pipewire wireplumber
 sudo cp ./audio/audio-patch.conf /etc/modprobe.d/
 sudo -i "s/load-module module-role-cork/#load-module module-role-cork/g" /etc/pulse/default.pa
-systemctl --user --now enable pipewire pipewire-pulse pipewire-media-session
+systemctl --user --now enable pipewire pipewire-pulse wireplumber
 
 # Java
-sudo pacman -S jre-openjdk jdk-openjdk
-sudo archlinux-java set java-22-openjdk
+sudo pacman -S jdk21-openjdk
+sudo archlinux-java set java-21-openjdk
 
 # Anti-Virus
 sudo pacman -S clamav

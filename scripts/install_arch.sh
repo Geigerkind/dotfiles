@@ -38,7 +38,7 @@ sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g' /etc/sudoers
 
 # Bootloader
 sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=\/dev\/${PARTITION_HOME}:luks_root\"/g" /etc/default/grub
-sed -i "s/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)/g" /etc/mkinitcpio.conf
+sed -i "s/block filesystems/block encrypt filesystems/g" /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
 # Install bootloader

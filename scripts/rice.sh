@@ -4,7 +4,7 @@
 yay -S firefox alacritty exa fd nautilus discord neofetch libreoffice xournal obsidian redshift youtube-music
 yay -S parallel pngquat
 yay -S postman
-yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre yarn
+yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre yarn graphviz
 yay -S neovim nvim-packer-git
 yay -S keepassxc virtualbox terraform teams-for-linux
 yay -S docker docker-compose
@@ -59,7 +59,7 @@ sudo cp ./laptop-lid-display-toggle/laptop-lid.sh /etc/acpi/
 sudo chmod 777 /etc/acpi/laptop-lid.sh
 
 ## Wayland
-yay -S playerctl sway-git swaylock swayidle waybar swaybg-git brightnessctl mako wl-clipboard clipman swayshot
+yay -S playerctl sway swaylock swayidle waybar swaybg brightnessctl mako wl-clipboard clipman swayshot
 yay -S xdg-desktop-portal-wlr slurp
 yay -S wdisplays jq
 

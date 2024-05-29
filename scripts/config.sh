@@ -26,6 +26,9 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo pacman -S ufw
 sudo systemctl enable --now ufw
 sudo ufw enable
+# Allows traffic to the docker0 interface which enables internal docker communication using the host network.
+# This is needed if your docker-configuration decides to use internal.docker.host to let containers communicate with each other.
+sudo ufw allow in on docker0
 
 # Yay
 sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j12"/g' /etc/makepkg.conf
